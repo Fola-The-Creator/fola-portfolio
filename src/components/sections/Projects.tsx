@@ -1,4 +1,5 @@
 import { ExternalLink, Github } from "lucide-react";
+import Image from "next/image";
 import { RevealOnScroll } from "../animations/RevealOnScroll";
 import { SectionDiv } from "../layouts";
 
@@ -85,10 +86,12 @@ export function Projects() {
               <div className="group">
                 {/* Image */}
                 <div className="relative aspect-4/3 mb-6 overflow-hidden bg-grey-900">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover grayscale group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
                 </div>
