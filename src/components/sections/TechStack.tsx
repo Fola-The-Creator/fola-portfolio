@@ -77,7 +77,7 @@ export function TechStack() {
             );
           })}
           <Link
-            href="#"
+            href="/tech"
             className="group bg-grey-0 p-8 hover:bg-grey-900 transition-all duration-300"
           >
             <div className="flex items-center gap-3">
