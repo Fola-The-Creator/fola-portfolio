@@ -59,7 +59,7 @@ export function Skills() {
                     size={32}
                     className="text-grey-900 mb-6 group-hover:text-grey-0 transition-colors"
                   />
-                  <h3 className="text-xl text-grey-900 mb-3 tracking-tight group-hover:text-grey-0 transition-colors">
+                  <h3 className="text-xl font-medium text-grey-900 mb-3 tracking-tight group-hover:text-grey-0 transition-colors">
                     {skill.title}
                   </h3>
                   <p className="text-grey-400 leading-relaxed group-hover:text-grey-100 transition-colors">

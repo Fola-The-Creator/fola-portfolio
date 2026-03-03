@@ -22,16 +22,18 @@ export function About() {
     },
   ];
 
-  const techStack = [
-    "Next.js",
-    "React.js",
-    "TypeScript",
-    "Tailwind CSS",
-    "GSAP",
-    "JavaScript",
-    "Git",
-    "REST APIs",
-  ];
+  // const techStack = [
+  //   "Next.js",
+  //   "React.js",
+  //   "TypeScript",
+  //   "Figma",
+  //   "Tailwind CSS",
+  //   "GSAP",
+  //   "JavaScript",
+  //   "Git",
+  //   "REST APIs",
+  //   "Redux Toolkit",
+  // ];
 
   return (
     <section id="about" className="py-32 border-t border-grey-50">
@@ -69,7 +71,7 @@ export function About() {
                 </p>
               </div>
 
-              <div className="mt-8 flex flex-wrap gap-2">
+              {/* <div className="mt-8 flex flex-wrap gap-2">
                 {techStack.map((tech) => (
                   <span
                     key={tech}
@@ -78,7 +80,7 @@ export function About() {
                     {tech}
                   </span>
                 ))}
-              </div>
+              </div> */}
 
               <MagneticButton className="mt-8">
                 <button className="group inline-flex items-center gap-3 border border-grey-100 text-grey-900 px-8 py-4 hover:border-accent-500 hover:text-accent-500 transition-all duration-300">
