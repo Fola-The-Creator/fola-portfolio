@@ -12,6 +12,8 @@ export function TechStack() {
     { name: "JavaScript", category: "Language" },
     { name: "Git", category: "Version Control" },
     { name: "REST APIs", category: "Integration" },
+    { name: "Figma", category: "Design" },
+    { name: "Redux Toolkit", category: "State Management" },
   ];
 
   return (

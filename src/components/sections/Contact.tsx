@@ -188,10 +188,10 @@ export function Contact() {
                   Email
                 </h3>
                 <a
-                  href="mailto:hello@developer.com"
+                  href="mailto:adebanjosamuel2002@gmail.com"
                   className="text-grey-400 hover:text-accent-500 transition-colors"
                 >
-                  hello@developer.com
+                  adebanjosamuel2002@gmail.com
                 </a>
               </div>
 
@@ -200,7 +200,7 @@ export function Contact() {
                   Location
                 </h3>
                 <p className="text-grey-400">
-                  San Francisco, CA
+                  Lagos, Nigeria
                   <br />
                   Remote Available
                 </p>
