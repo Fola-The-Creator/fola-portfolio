@@ -37,10 +37,10 @@ const skills = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-32 border-t border-grey-50">
+    <section id="skills" className="py-32 border-t border-grey-200">
       <SectionDiv>
         <RevealOnScroll>
-          <div className="text-grey-500 font-medium tracking-[0.3em] text-sm mb-12 uppercase">
+          <div className="text-grey-700 font-medium tracking-[0.3em] text-sm mb-12 uppercase">
             Core Competencies
           </div>
 
@@ -49,7 +49,7 @@ export function Skills() {
           </h2>
         </RevealOnScroll>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-grey-50">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-grey-50">
           {skills.map((skill, index) => {
             const Icon = skill.icon;
             return (
@@ -62,7 +62,7 @@ export function Skills() {
                   <h3 className="text-xl font-medium text-grey-900 mb-3 tracking-tight group-hover:text-grey-0 transition-colors">
                     {skill.title}
                   </h3>
-                  <p className="text-grey-400 leading-relaxed group-hover:text-grey-100 transition-colors">
+                  <p className="text-grey-700 leading-relaxed group-hover:text-grey-100 transition-colors">
                     {skill.description}
                   </p>
                 </div>

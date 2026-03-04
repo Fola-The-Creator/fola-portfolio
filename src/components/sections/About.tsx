@@ -36,10 +36,10 @@ export function About() {
   // ];
 
   return (
-    <section id="about" className="py-32 border-t border-grey-50">
+    <section id="about" className="py-32 border-t border-grey-200">
       <SectionDiv>
         <RevealOnScroll>
-          <div className="text-grey-500 tracking-[0.3em] text-sm mb-12 uppercase">
+          <div className="text-grey-700 tracking-[0.3em] text-sm mb-12 uppercase">
             About Me
           </div>
         </RevealOnScroll>
@@ -51,10 +51,10 @@ export function About() {
               <h2 className="text-4xl md:text-5xl text-grey-900 font-medium mb-8 leading-tight tracking-tight">
                 Building the web,
                 <br />
-                <span className="text-grey-400">one component at a time</span>
+                <span className="text-grey-600">one component at a time</span>
               </h2>
 
-              <div className="space-y-4 text-grey-400 leading-relaxed">
+              <div className="space-y-4 text-grey-700 leading-relaxed">
                 <p>
                   I&apos;m a frontend developer passionate about creating
                   exceptional digital experiences through clean code and
@@ -83,7 +83,7 @@ export function About() {
               </div> */}
 
               <MagneticButton className="mt-8">
-                <button className="group inline-flex items-center gap-3 border border-grey-100 text-grey-900 px-8 py-4 hover:border-accent-500 hover:text-accent-500 transition-all duration-300">
+                <button className="group inline-flex items-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 hover:border-accent-500 hover:text-accent-500 transition-all duration-300">
                   <Download size={18} />
                   <span className="tracking-wide">Download Resume</span>
                 </button>
@@ -103,15 +103,15 @@ export function About() {
                   {experience.map((item, index) => (
                     <div
                       key={index}
-                      className="border-l-2 border-grey-100 pl-6 hover:border-accent-500 transition-colors duration-300"
+                      className="border-l-2 border-grey-200 pl-6 hover:border-accent-500 transition-colors duration-300"
                     >
-                      <div className="text-grey-500 text-sm tracking-wider mb-2">
+                      <div className="text-grey-700 text-sm tracking-wider mb-2">
                         {item.year}
                       </div>
                       <div className="text-grey-900 text-xl font-medium mb-1 tracking-tight">
                         {item.role}
                       </div>
-                      <div className="text-grey-400">{item.company}</div>
+                      <div className="text-grey-700">{item.company}</div>
                     </div>
                   ))}
                 </div>

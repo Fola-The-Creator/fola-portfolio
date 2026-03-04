@@ -1,10 +1,12 @@
 "use client";
 
-import { Github, Linkedin, Twitter, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import { useState } from "react";
 import { RevealOnScroll } from "../animations/RevealOnScroll";
 import { MagneticButton } from "../animations/MagneticButton";
 import { SectionDiv } from "../layouts";
+import { SiGithub, SiX } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
 
 export function Contact() {
   const [focusedInput, setFocusedInput] = useState<string | null>(null);
@@ -27,16 +29,16 @@ export function Contact() {
   };
 
   const socialLinks = [
-    { icon: Github, url: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, url: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, url: "https://twitter.com", label: "Twitter" },
+    { icon: SiGithub, url: "https://github.com", label: "GitHub" },
+    { icon: FaLinkedin, url: "https://linkedin.com", label: "LinkedIn" },
+    { icon: SiX, url: "https://x.com", label: "Twitter" },
   ];
 
   return (
-    <section id="contact" className="py-32 border-t border-grey-50">
+    <section id="contact" className="py-32 border-t border-grey-200">
       <SectionDiv>
         <RevealOnScroll>
-          <div className="text-grey-500 tracking-[0.3em] text-sm mb-12 uppercase">
+          <div className="text-grey-700 tracking-[0.3em] text-sm mb-12 uppercase">
             Get In Touch
           </div>
 
@@ -44,7 +46,7 @@ export function Contact() {
             Let&apos;s build something great together
           </h2>
 
-          <p className="text-grey-400 text-lg max-w-2xl mb-16">
+          <p className="text-grey-700 text-lg max-w-2xl mb-16">
             I&apos;m always open to discussing new projects, creative ideas, or
             opportunities to be part of your vision.
           </p>
@@ -68,8 +70,8 @@ export function Contact() {
                 <label
                   className={`absolute left-0 transition-all duration-300 pointer-events-none tracking-wide ${
                     focusedInput === "name" || formData.name
-                      ? "text-xs text-grey-500 -top-4"
-                      : "text-base text-grey-500 top-4"
+                      ? "text-xs text-grey-700 -top-4"
+                      : "text-base text-grey-700 top-4"
                   }`}
                 >
                   Your Name
@@ -90,8 +92,8 @@ export function Contact() {
                 <label
                   className={`absolute left-0 transition-all duration-300 pointer-events-none tracking-wide ${
                     focusedInput === "email" || formData.email
-                      ? "text-xs text-grey-500 -top-4"
-                      : "text-base text-grey-500 top-4"
+                      ? "text-xs text-grey-700 -top-4"
+                      : "text-base text-grey-700 top-4"
                   }`}
                 >
                   Email Address
@@ -112,8 +114,8 @@ export function Contact() {
                 <label
                   className={`absolute left-0 transition-all duration-300 pointer-events-none tracking-wide ${
                     focusedInput === "subject" || formData.subject
-                      ? "text-xs text-grey-500 -top-4"
-                      : "text-base text-grey-500 top-4"
+                      ? "text-xs text-grey-700 -top-4"
+                      : "text-base text-grey-700 top-4"
                   }`}
                 >
                   Subject
@@ -134,8 +136,8 @@ export function Contact() {
                 <label
                   className={`absolute left-0 transition-all duration-300 pointer-events-none tracking-wide ${
                     focusedInput === "message" || formData.message
-                      ? "text-xs text-grey-500 -top-4"
-                      : "text-base text-grey-500 top-4"
+                      ? "text-xs text-grey-700 -top-4"
+                      : "text-base text-grey-700 top-4"
                   }`}
                 >
                   Your Message
@@ -161,7 +163,7 @@ export function Contact() {
           <RevealOnScroll delay={0.3} className="lg:col-span-2">
             <div className="space-y-8">
               <div>
-                <h3 className="text-grey-900 text-xl mb-4 tracking-tight">
+                <h3 className="text-grey-900 font-medium text-xl mb-4 tracking-tight">
                   Connect
                 </h3>
                 <div className="flex gap-4">
@@ -189,7 +191,7 @@ export function Contact() {
                 </h3>
                 <a
                   href="mailto:adebanjosamuel2002@gmail.com"
-                  className="text-grey-400 hover:text-accent-500 transition-colors"
+                  className="text-grey-700 hover:text-accent-500 transition-colors"
                 >
                   adebanjosamuel2002@gmail.com
                 </a>
@@ -199,7 +201,7 @@ export function Contact() {
                 <h3 className="text-grey-900 text-xl mb-4 tracking-tight">
                   Location
                 </h3>
-                <p className="text-grey-400">
+                <p className="text-grey-700">
                   Lagos, Nigeria
                   <br />
                   Remote Available

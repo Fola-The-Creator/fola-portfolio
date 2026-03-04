@@ -68,10 +68,10 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-32 border-t border-grey-50">
+    <section id="projects" className="py-32 border-t border-grey-200">
       <SectionDiv>
         <RevealOnScroll>
-          <div className="text-grey-500 tracking-[0.3em] text-sm mb-12 uppercase">
+          <div className="text-grey-700 tracking-[0.3em] text-sm mb-12 uppercase">
             Selected Work
           </div>
 
@@ -102,7 +102,7 @@ export function Projects() {
                     {project.title}
                   </h3>
 
-                  <p className="text-grey-400 mb-4 leading-relaxed">
+                  <p className="text-grey-700 mb-4 leading-relaxed">
                     {project.description}
                   </p>
 
@@ -111,7 +111,7 @@ export function Projects() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs text-grey-900 border border-grey-100 px-3 py-1 tracking-wider"
+                        className="text-xs text-grey-900 border border-grey-200 px-3 py-1 tracking-wider"
                       >
                         {tag}
                       </span>

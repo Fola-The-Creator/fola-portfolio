@@ -36,10 +36,10 @@ const technologies: Technology[] = [
 
 export function TechStack() {
   return (
-    <section id="tech" className="py-32 border-t border-grey-50">
+    <section id="tech" className="py-32 border-t border-grey-200">
       <SectionDiv>
         <RevealOnScroll>
-          <div className="text-grey-500 tracking-[0.3em] text-sm mb-12 uppercase">
+          <div className="text-grey-700 tracking-[0.3em] text-sm mb-12 uppercase">
             Tech Stack
           </div>
 
@@ -50,8 +50,8 @@ export function TechStack() {
 
         <RevealOnScroll
           stagger={0.1}
-          duration={0.4}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-grey-50"
+          duration={0.2}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0.5 bg-grey-50"
         >
           {technologies.map((tech) => {
             const Icon = tech.icon;
@@ -60,7 +60,7 @@ export function TechStack() {
                 key={tech.name}
                 className="group bg-grey-0 p-8 hover:bg-grey-900 transition-all duration-300"
               >
-                <div className="text-grey-400 text-xs tracking-wider mb-3 uppercase group-hover:text-grey-100 transition-colors">
+                <div className="text-grey-700 text-xs tracking-wider mb-3 uppercase group-hover:text-grey-100 transition-colors">
                   {tech.category}
                 </div>
                 <div className="flex items-center gap-3">

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/styles/globals.css";
 import { GSAPProvider } from "@/components/animations";
+import { Footer, Navigation } from "@/components/layouts";
+import { DarkThemeProvider } from "@/context/DarkThemeContext";
 
 const gilroy = localFont({
   src: [
@@ -29,7 +31,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${gilroy.variable} antialiased scroll-smooth`}>
       <body className="bg-grey-0 text-grey-900">
-        <GSAPProvider>{children}</GSAPProvider>
+        <DarkThemeProvider>
+          <GSAPProvider>
+            <Navigation />
+            {children}
+            <Footer />
+          </GSAPProvider>
+        </DarkThemeProvider>
       </body>
     </html>
   );

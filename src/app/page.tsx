@@ -1,5 +1,4 @@
 import { CustomCursor } from "@/components/animations";
-import { Footer, Navigation } from "@/components/layouts";
 import {
   About,
   Contact,
@@ -12,10 +11,9 @@ import { GridBackground } from "@/components/ui";
 
 export default function page() {
   return (
-    <div>
+    <>
       <GridBackground />
       <CustomCursor />
-      <Navigation />
 
       <main>
         <Hero />
@@ -25,8 +23,6 @@ export default function page() {
         <Skills />
         <Contact />
       </main>
-
-      <Footer />
-    </div>
+    </>
   );
 }
