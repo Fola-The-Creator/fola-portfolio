@@ -142,8 +142,8 @@ export default function TechPage() {
 
         <RevealOnScroll
           key={activeCategory}
-          stagger={0.05}
-          duration={0.2}
+          stagger={0.07}
+          duration={0.25}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0.5 bg-grey-50"
         >
           {filtered.map((tech) => {

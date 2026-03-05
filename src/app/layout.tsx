@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { GSAPProvider } from "@/components/animations";
 import { Footer, Navigation } from "@/components/layouts";
 import { DarkThemeProvider } from "@/context/DarkThemeContext";
+// import { GridBackground } from "@/components/ui";
 
 const gilroy = localFont({
   src: [
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className="bg-grey-0 text-grey-900">
         <DarkThemeProvider>
           <GSAPProvider>
+            {/* <GridBackground /> */}
             <Navigation />
             {children}
             <Footer />
