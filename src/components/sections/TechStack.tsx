@@ -5,15 +5,16 @@ import {
   SiReact,
   SiTypescript,
   SiTailwindcss,
-  SiGreensock,
   SiJavascript,
   SiGit,
   SiFigma,
   SiRedux,
+  SiGsap,
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 import { IconType } from "react-icons";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 type Technology = {
   icon: IconType;
@@ -26,7 +27,7 @@ const technologies: Technology[] = [
   { icon: SiReact, name: "React.js", category: "Library" },
   { icon: SiTypescript, name: "TypeScript", category: "Language" },
   { icon: SiTailwindcss, name: "Tailwind CSS", category: "Styling" },
-  { icon: SiGreensock, name: "GSAP", category: "Animation" },
+  { icon: SiGsap, name: "GSAP", category: "Animation" },
   { icon: SiJavascript, name: "JavaScript", category: "Language" },
   { icon: SiGit, name: "Git", category: "Version Control" },
   { icon: TbApi, name: "REST APIs", category: "Integration" },
@@ -84,6 +85,11 @@ export function TechStack() {
               <div className="text-grey-900 text-2xl tracking-tight group-hover:text-grey-0 transition-colors">
                 View More
               </div>
+
+              <ArrowRight
+                size={18}
+                className="text-grey-900 group-hover:text-grey-0 group-hover:translate-x-1 transition-transform"
+              />
             </div>
             <div className="mt-4 h-px w-0 bg-accent-500 group-hover:w-12 transition-all duration-500" />
           </Link>

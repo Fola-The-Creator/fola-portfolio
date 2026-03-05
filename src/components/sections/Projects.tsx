@@ -1,7 +1,9 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import { RevealOnScroll } from "../animations/RevealOnScroll";
 import { SectionDiv } from "../layouts";
+import { MagneticButton } from "../animations";
+import Link from "next/link";
 
 const projects = [
   {
@@ -147,6 +149,19 @@ export function Projects() {
             </RevealOnScroll>
           ))}
         </div>
+
+        <MagneticButton className="mx-auto">
+          <Link 
+            href="/projects"
+            className="group inline-flex items-center justify-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 hover:border-accent-500 hover:text-accent-500 transition-all duration-300 w-full md:mt-24 mt-16"
+          >
+            <span className="tracking-wide">View All Projects</span>
+            <ArrowRight
+              size={18}
+              className="group-hover:translate-x-1 transition-transform"
+            />
+          </Link>
+        </MagneticButton>
       </SectionDiv>
     </section>
   );

@@ -12,8 +12,8 @@ import { GridBackground } from "@/components/ui";
 export default function page() {
   return (
     <>
-      <GridBackground />
       <CustomCursor />
+      <GridBackground />
 
       <main>
         <Hero />

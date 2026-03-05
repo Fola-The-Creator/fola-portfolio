@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { FadeIn, MagneticButton } from "../animations";
 import { SectionDiv } from "../layouts";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -31,8 +32,8 @@ export function Hero() {
         <FadeIn delay={0.8}>
           <div className="flex flex-col min-[500px]:flex-row gap-4">
             <MagneticButton>
-              <a
-                href="#projects"
+              <Link
+                href="/projects"
                 className="group inline-flex items-center justify-center gap-3 bg-grey-900 text-grey-0 px-8 py-4 hover:bg-accent-500 hover:text-white transition-all duration-300 w-full"
               >
                 <span className="tracking-wide">View Projects</span>
@@ -40,7 +41,7 @@ export function Hero() {
                   size={18}
                   className="group-hover:translate-x-1 transition-transform"
                 />
-              </a>
+              </Link>
             </MagneticButton>
 
             <MagneticButton>

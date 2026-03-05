@@ -36,7 +36,7 @@ export function About() {
   // ];
 
   return (
-    <section id="about" className="py-32 border-t border-grey-200">
+    <section id="about" className="py-32 border-t border-grey-200 bg-grey-0">
       <SectionDiv>
         <RevealOnScroll>
           <div className="text-grey-700 tracking-[0.3em] text-sm mb-12 uppercase">

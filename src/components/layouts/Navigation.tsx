@@ -8,6 +8,12 @@ import { useDarkTheme } from "@/context/DarkThemeContext";
 import gsap from "gsap";
 import Link from "next/link";
 
+const getSectionFromHref = (href: string) => {
+  if (href.startsWith("/#")) return href.slice(2); // "/#about" -> "about"
+  if (href.startsWith("/")) return href.slice(1); // "/tech" -> "tech"
+  return href;
+};
+
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -117,7 +123,7 @@ export function Navigation() {
   const navLinks = [
     { href: "/#about", label: "About" },
     { href: "/tech", label: "Tech Stack" },
-    { href: "/#projects", label: "Projects" },
+    { href: "/projects", label: "Projects" },
     { href: "/#skills", label: "Skills" },
     { href: "/#contact", label: "Contact" },
   ];
@@ -191,7 +197,11 @@ export function Navigation() {
             </button>
 
             {/* Logo */}
-            <Link href="/#" className="hover:opacity-70 transition-opacity">
+            <Link
+              href="/#"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="hover:opacity-70 transition-opacity"
+            >
               <Logo className="fill-grey-900 w-24 sm:w-24" />
             </Link>
           </div>
@@ -200,7 +210,8 @@ export function Navigation() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => {
-                const isActive = activeSection === link.href.substring(1);
+                const section = getSectionFromHref(link.href);
+                const isActive = activeSection === section;
                 return (
                   <Link
                     key={link.href}

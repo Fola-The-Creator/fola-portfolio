@@ -8,7 +8,6 @@ import {
   SiReact,
   SiTypescript,
   SiTailwindcss,
-  SiGreensock,
   SiJavascript,
   SiGit,
   SiFigma,
@@ -30,10 +29,12 @@ import {
   SiSupabase,
   SiVercel,
   SiNetlify,
+  SiGsap,
   // SiZustand,
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 import { IconType } from "react-icons";
+import { DiIllustrator, DiPhotoshop } from "react-icons/di";
 
 type Category =
   | "All"
@@ -58,7 +59,7 @@ const technologies: Technology[] = [
   { icon: SiNextdotjs, name: "Next.js", category: "Frontend" },
   { icon: SiReact, name: "React", category: "Frontend" },
   { icon: SiFramer, name: "Framer Motion", category: "Animation" },
-  { icon: SiGreensock, name: "GSAP", category: "Animation" },
+  { icon: SiGsap, name: "GSAP", category: "Animation" },
   { icon: SiTypescript, name: "TypeScript", category: "Languages" },
   { icon: SiJavascript, name: "JavaScript", category: "Languages" },
   { icon: SiNodedotjs, name: "Node.js", category: "Backend" },
@@ -83,6 +84,8 @@ const technologies: Technology[] = [
   { icon: SiJest, name: "Jest", category: "Testing" },
   { icon: SiCypress, name: "Cypress", category: "Testing" },
   { icon: SiFigma, name: "Figma", category: "Design" },
+  { icon: DiIllustrator, name: "Adobe Illustrator", category: "Design" },
+  { icon: DiPhotoshop, name: "Adobe Photoshop", category: "Design" },
 ];
 
 const categories: Category[] = [
