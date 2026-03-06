@@ -42,7 +42,7 @@ export function HeroAnimated() {
           scale: 1,
           borderRadius: "0%",
           opacity: 1,
-          duration: 1.2,
+          duration: 2, //1.2
           ease: "expo.out",
         },
         0,
@@ -91,7 +91,7 @@ export function HeroAnimated() {
       /* ─── SCROLL PARALLAX ───────────────────────────────────────────────── */
       // Image moves UP slower (moves less px) — classic parallax
       gsap.to(imageWrapRef.current, {
-        yPercent: -18,
+        yPercent: -10,
         ease: "none",
         scrollTrigger: {
           trigger: section,
@@ -120,7 +120,7 @@ export function HeroAnimated() {
   return (
     <section
       ref={sectionRef}
-      className="w-full flex items-start md:items-center justify-between gap-12 flex-col md:flex-row max-md:pt-40 max-md:pb-30 pt-50 pb-30 xl:pt-80 xl:pb-60 overflow-hidden"
+      className="w-full flex items-start md:items-center justify-between gap-12 flex-col md:flex-row max-md:pt-40 max-md:pb-30 pt-50 pb-30 xl:pt-70 xl:pb-50 overflow-hidden"
     >
       {/* ── TEXT COLUMN ─────────────────────────────────────────────────────── */}
 

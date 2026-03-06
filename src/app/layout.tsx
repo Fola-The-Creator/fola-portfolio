@@ -6,6 +6,13 @@ import { Footer, Navigation } from "@/components/layouts";
 import { DarkThemeProvider } from "@/context/DarkThemeContext";
 // import { GridBackground } from "@/components/ui";
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 const gilroy = localFont({
   src: [
     { path: "../fonts/Gilroy-Regular.woff2", weight: "400", style: "normal" },
