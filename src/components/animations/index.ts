@@ -4,4 +4,4 @@ export { StaggerChildren } from "./StaggerChildren";
 export { MagneticButton } from "./MagneticButton";
 export { CustomCursor } from "./CustomCursor";
 export { GSAPProvider } from "./GSAPProvider";
-export { SlicedImageReveal } from "./SlicedImageReveal";
+export { HeroAnimated } from "./HeroAnimated";

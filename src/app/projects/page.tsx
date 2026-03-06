@@ -231,7 +231,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* ── Featured ─────────────────────────────────────────── */}
-      <section className="py-24 border-b border-grey-200">
+      <section className="py-24 border-b border-grey-200 bg-grey-0">
         <SectionDiv>
           <RevealOnScroll>
             <div className="text-grey-700 tracking-[0.3em] text-sm mb-12 uppercase">
@@ -314,7 +314,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* ── All Projects with Filter ──────────────────────────── */}
-      <section className="py-24">
+      <section className="py-24 bg-grey-0">
         <SectionDiv>
           <RevealOnScroll>
             <div className="text-grey-700 tracking-[0.3em] text-sm mb-12 uppercase">

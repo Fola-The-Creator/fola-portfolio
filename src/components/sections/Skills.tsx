@@ -37,7 +37,7 @@ const skills = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-32 border-t border-grey-200">
+    <section id="skills" className="py-32 border-t border-grey-200 bg-grey-0">
       <SectionDiv>
         <RevealOnScroll>
           <div className="text-grey-700 font-medium tracking-[0.3em] text-sm mb-12 uppercase">

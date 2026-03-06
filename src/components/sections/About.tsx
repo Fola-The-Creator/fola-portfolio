@@ -36,7 +36,10 @@ export function About() {
   // ];
 
   return (
-    <section id="about" className="py-32 border-t border-grey-200 bg-grey-0">
+    <section
+      id="about"
+      className="py-32 border-t border-grey-200 bg-grey-0 overflow-hidden"
+    >
       <SectionDiv>
         <RevealOnScroll>
           <div className="text-grey-700 tracking-[0.3em] text-sm mb-12 uppercase">
@@ -92,7 +95,7 @@ export function About() {
           </RevealOnScroll>
 
           {/* Right Column - Experience Timeline */}
-          <RevealOnScroll delay={0.3}>
+          <RevealOnScroll delay={0.3} direction="left">
             <div className="space-y-8">
               <div>
                 <h3 className="text-2xl text-grey-900 font-medium mb-8 tracking-tight">

@@ -111,7 +111,7 @@ export default function TechPage() {
       : technologies.filter((t) => t.category === activeCategory);
 
   return (
-    <section id="tech" className="min-h-[85vh] py-32 border-t border-grey-200">
+    <section id="tech" className="min-h-[85vh] py-32 border-t border-grey-200 bg-grey-0">
       <SectionDiv>
         <RevealOnScroll>
           <div className="text-grey-700 tracking-[0.3em] text-sm mb-12 uppercase">

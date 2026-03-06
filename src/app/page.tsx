@@ -1,4 +1,3 @@
-import { CustomCursor } from "@/components/animations";
 import {
   About,
   Contact,
@@ -11,8 +10,6 @@ import {
 export default function page() {
   return (
     <>
-      <CustomCursor />
-
       <main>
         <Hero />
         <About />

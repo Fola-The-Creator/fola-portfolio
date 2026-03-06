@@ -35,7 +35,10 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-32 border-t border-grey-200 bg-grey-0">
+    <section
+      id="contact"
+      className="py-32 border-t border-grey-200 bg-grey-0 overflow-hidden"
+    >
       <SectionDiv>
         <RevealOnScroll>
           <div className="text-grey-700 tracking-[0.3em] text-sm mb-12 uppercase">
@@ -160,7 +163,11 @@ export function Contact() {
           </RevealOnScroll>
 
           {/* Contact Info */}
-          <RevealOnScroll delay={0.3} className="lg:col-span-2">
+          <RevealOnScroll
+            delay={0.3}
+            direction="left"
+            className="lg:col-span-2"
+          >
             <div className="space-y-8">
               <div>
                 <h3 className="text-grey-900 font-medium text-xl mb-4 tracking-tight">
