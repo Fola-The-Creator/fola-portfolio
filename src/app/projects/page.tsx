@@ -197,7 +197,7 @@ export default function ProjectsPage() {
             <h1 className="text-5xl md:text-7xl text-grey-900 font-medium leading-tight tracking-tight max-w-4xl mb-8">
               Projects that
               <br />
-              <span className="text-grey-600">showcase my craft</span>
+              <span className="text-grey-500">showcase my craft</span>
             </h1>
             <p className="text-grey-700 md:text-lg max-w-xl leading-relaxed">
               A curated collection of work spanning product design, full-stack

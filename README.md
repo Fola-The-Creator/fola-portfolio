@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Creative Developer Portfolio
+
+A professional, high-performance portfolio website built to showcase engineering projects, technical expertise, and custom creative animations. This project serves as a central hub for personal branding, demonstrating clean code practices, responsive layouts, and interactive user experiences.
+
+## Key Features
+
+- Interactive Animations: Integrated custom animations using GreenSock Animation Platform (GSAP), including scroll-based reveals, staggering child elements, and custom hover states.
+- Animated Components: Features custom components such as magnetic buttons, fade-in transitions, and an interactive custom cursor.
+- Theme Management: Built-in dark theme context provider supporting responsive theme switching.
+- Modern Navigation: Fluid header navigation with smooth scrolling and specialized animations.
+- Dynamic Project Pages: Structured project showcases and detailed tech stack directories to present selected works in a clean grid layout.
+- Modular Architecture: Clean separation of concerns with components split into sections, layouts, UI utilities, animations, and icons.
+
+## Tech Stack
+
+- Framework: Next.js (version 16) with App Router
+- Library: React (version 19)
+- Styling: Tailwind CSS (version 4)
+- Animation: GreenSock Animation Platform (GSAP) and GSAP React bindings
+- Icons: Lucide React and React Icons
+- Type System: TypeScript
+- Package Manager: npm
+
+## Project Structure
+
+The codebase is organized in a modular structure under the src folder:
+
+- src/app: Core pages, layouts, custom routes (projects, tech), and page-level metadata.
+- src/components: Reusable presentation elements, categorized as:
+  - animations: GSAP scroll reveal, magnetic buttons, custom cursor, and transition wrappers.
+  - layouts: Navigation bar, footer structure, and section wrappers.
+  - sections: Interactive landing page sections (Hero, About, TechStack, Projects, Skills, Contact).
+  - ui: Small-scale visual enhancements.
+- src/context: State providers for global features such as theme toggle.
+- src/fonts: Asset files for local typographic styling.
+- src/styles: Core CSS configurations and Tailwind directives.
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to run the project locally.
+
+### Prerequisites
+
+Ensure you have Node.js (v18 or higher) and npm installed.
+
+### Installation
+
+Clone the repository and install the dependencies:
+
+```bash
+npm install
+```
+
+### Run the Development Server
+
+Start the local server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To build the application for deployment:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+To run the built production bundle:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run start
+```

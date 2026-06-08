@@ -129,28 +129,27 @@ export function HeroAnimated() {
           ref={taglineRef}
           className="text-grey-700 tracking-[0.3em] text-sm mb-6 uppercase"
         >
-          Frontend Developer
+          Full-Stack Developer
         </div>
 
         <h1
           ref={headingRef}
           className="text-5xl md:text-7xl xl:text-8xl text-grey-900 font-medium mb-8 leading-[1.1] tracking-tight text-balance"
         >
-          Crafting Scalable
-          <span className="text-grey-600"> Web Experiences</span>
+          Building Scalable
+          <span className="text-grey-500"> Digital Products</span>
         </h1>
 
         <p
           ref={paraRef}
           className="text-grey-700 text-base md:text-xl max-w-2xl mb-12 leading-relaxed"
         >
-          Specialized in building performant, type-safe web applications with
-          modern frontend technologies. Focused on clean architecture, component
-          design systems, and scalable solutions.
+          I design and develop type-safe applications, from intuitive user
+          interfaces to robust backend systems. Focused on performance,
+          scalability, and clean architecture using modern technologies.
         </p>
 
         <div ref={ctaRef} className="flex flex-col min-[500px]:flex-row gap-4">
-          {/* Magnetic wrapper is a Client Component — keep it if already in your codebase */}
           <MagneticButton>
             <Link
               href="/projects"

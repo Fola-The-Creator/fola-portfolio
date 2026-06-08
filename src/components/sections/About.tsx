@@ -52,25 +52,25 @@ export function About() {
           <RevealOnScroll delay={0.2}>
             <div>
               <h2 className="text-4xl md:text-5xl text-grey-900 font-medium mb-8 leading-tight tracking-tight">
-                Building the web,
+                Building scalable apps,
                 <br />
-                <span className="text-grey-600">one component at a time</span>
+                <span className="text-grey-500">end-to-end</span>
               </h2>
 
               <div className="space-y-4 text-grey-700 leading-relaxed">
                 <p>
-                  I&apos;m a frontend developer passionate about creating
-                  exceptional digital experiences through clean code and
-                  thoughtful design. With a focus on performance optimization
-                  and scalable architecture, I transform complex problems into
-                  elegant solutions.
+                  I&apos;m <strong>Fola</strong>, a full-stack developer focused
+                  on building performant, scalable applications. I enjoy turning
+                  complex problems into simple, intuitive solutions, from
+                  crafting seamless user interfaces to designing reliable
+                  backend systems.
                 </p>
                 <p>
-                  My expertise lies in modern JavaScript frameworks,
-                  particularly React and Next.js, combined with a strong
-                  understanding of TypeScript and component-driven development.
-                  I believe in writing maintainable, type-safe code that stands
-                  the test of time.
+                  My work is centered around modern JavaScript ecosystems,
+                  including React, Next.js, and Node.js, with a strong emphasis
+                  on TypeScript, clean architecture, and maintainable code. I
+                  prioritize performance, developer experience, and building
+                  systems that scale efficiently.
                 </p>
               </div>
 

@@ -5,33 +5,33 @@ import { SectionDiv } from "../layouts";
 const skills = [
   {
     icon: Code2,
-    title: "Frontend Architecture",
+    title: "Full-Stack Development",
     description:
-      "Building scalable component structures and modular code patterns for maintainable applications.",
+      "Building end-to-end applications, from responsive user interfaces to scalable backend services and APIs.",
+  },
+  {
+    icon: Layers,
+    title: "System & API Design",
+    description:
+      "Designing clean, efficient architectures and RESTful APIs with a focus on scalability and maintainability.",
   },
   {
     icon: Layout,
-    title: "Responsive Design",
+    title: "Responsive Interfaces",
     description:
-      "Creating fluid, adaptive layouts that provide exceptional experiences across all devices.",
+      "Creating intuitive, accessible user interfaces that adapt seamlessly across devices and screen sizes.",
   },
   {
     icon: Zap,
     title: "Performance Optimization",
     description:
-      "Implementing best practices for fast load times, efficient rendering, and optimal UX.",
-  },
-  {
-    icon: Layers,
-    title: "Component Design Systems",
-    description:
-      "Developing comprehensive design systems with reusable, accessible components.",
+      "Optimizing applications for speed and efficiency through code-splitting, caching strategies, and efficient rendering.",
   },
   {
     icon: Globe,
-    title: "API Integration",
+    title: "Data & Integration",
     description:
-      "Seamless integration with REST and GraphQL APIs, managing state and data flow.",
+      "Working with databases and external services, managing data flow and integration across distributed systems.",
   },
 ];
 
