@@ -15,17 +15,17 @@
     --color-grey-800: #262626;
     --color-grey-900: #171717;
 
-    /* Accent (Orange) */
-    --color-accent-50: #fff1ed;
-    --color-accent-100: #ffd9cf;
-    --color-accent-200: #ffb8a6;
-    --color-accent-300: #ff9277;
-    --color-accent-400: #f76f4f;
-    --color-accent-500: #eb5d3a;
-    --color-accent-600: #d94e2e;
-    --color-accent-700: #b94027;
-    --color-accent-800: #963320;
-    --color-accent-900: #7a291b;
+    /* Accent remapped to grey — accent-500 is pure black */
+    --color-accent-50: #fafafa;
+    --color-accent-100: #f5f5f5;
+    --color-accent-200: #e5e5e5;
+    --color-accent-300: #d4d4d4;
+    --color-accent-400: #404040;
+    --color-accent-500: #171717;
+    --color-accent-600: #262626;
+    --color-accent-700: #404040;
+    --color-accent-800: #525252;
+    --color-accent-900: #737373;
 
     --grid-color: rgba(0, 0, 0, 0.507);
     --grid-opacity: 0.06;
@@ -46,24 +46,23 @@
     --color-grey-800: #e5e5e5;
     --color-grey-900: #f5f5f5;
 
-    /* Accent (Perceptually inverted) */
-    --color-accent-50: #7a291b;
-    --color-accent-100: #963320;
-    --color-accent-200: #b94027;
-    --color-accent-300: #d94e2e;
-    --color-accent-400: #eb5d3a;
-    --color-accent-500: #f76f4f;
-    --color-accent-600: #ff9277;
-    --color-accent-700: #ffb8a6;
-    --color-accent-800: #ffd9cf;
-    --color-accent-900: #fff1ed;
+    /* Accent remapped to grey — accent-500 is near-white */
+    --color-accent-50: #171717;
+    --color-accent-100: #1f1f1f;
+    --color-accent-200: #262626;
+    --color-accent-300: #2e2e2e;
+    --color-accent-400: #d4d4d4;
+    --color-accent-500: #f5f5f5;
+    --color-accent-600: #e5e5e5;
+    --color-accent-700: #d4d4d4;
+    --color-accent-800: #a3a3a3;
+    --color-accent-900: #737373;
 
     --grid-color: #f5f5f5;
     --grid-opacity: 0.02;
   }
 }
 
-/* Tailwind Theme Bridge */
 @theme {
   --color-grey-0: "var(--color-grey-0)";
   --color-grey-50: "var(--color-grey-50)";
@@ -95,11 +94,16 @@ html {
   scroll-behavior: smooth;
 }
 
-* {
-  /* transition: all 0.2s ease-in-out !important; */
+/* Hide scrollbar while keeping scroll functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar for the page */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -116,49 +120,3 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
-/* Typography refinements */
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-
-p {
-  line-height: 1.7;
-} */
-
-/* 
-Neutral Grayscale
-
-//////DARK MODE
---color-grey-0: #171717;
-    --color-grey-50: #262626;
-    --color-grey-100: #404040;
-    --color-grey-200: #525252;
-    --color-grey-300: #737373;
-    --color-grey-400: #a3a3a3;
-    --color-grey-500: #d4d4d4;
-    --color-grey-600: #e5e5e5;
-    --color-grey-700: #f2f2f2;
-    --color-grey-800: #fafafa;
-    --color-grey-900: #ffffff;
-    
-
-    //////LIGHT MODE
-     --color-grey-0: #ffffff;
-    --color-grey-50: #fafafa;
-    --color-grey-100: #f2f2f2;
-    --color-grey-200: #e5e5e5;
-    --color-grey-300: #d4d4d4;
-    --color-grey-400: #a3a3a3;
-    --color-grey-500: #737373;
-    --color-grey-600: #525252;
-    --color-grey-700: #404040;
-    --color-grey-800: #262626;
-    --color-grey-900: #171717;
-    */

@@ -8,7 +8,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { MagneticButton } from "./MagneticButton";
 
-// Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
 export function HeroAnimated() {
@@ -26,29 +25,15 @@ export function HeroAnimated() {
       const section = sectionRef.current;
       if (!section) return;
 
-      /* ─── ENTRANCE TIMELINE ─────────────────────────────────────────────── */
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      // 1. Image: tiny centered dot → full figure
       tl.fromTo(
         imageWrapRef.current,
-        {
-          scale: 0.01, //0.04
-          borderRadius: "200%", //50%
-          opacity: 0,
-          transformOrigin: "center center",
-        },
-        {
-          scale: 1,
-          borderRadius: "0%",
-          opacity: 1,
-          duration: 2, //1.2
-          ease: "expo.out",
-        },
+        { scale: 0.01, borderRadius: "200%", opacity: 0, transformOrigin: "center center" },
+        { scale: 1, borderRadius: "1rem", opacity: 1, duration: 2, ease: "expo.out" },
         0,
       );
 
-      // Inner image subtle scale-down for dramatic zoom feel
       tl.fromTo(
         imageRef.current,
         { scale: 2.5 },
@@ -56,7 +41,6 @@ export function HeroAnimated() {
         0,
       );
 
-      // 2. Tagline flies in from the LEFT
       tl.fromTo(
         taglineRef.current,
         { x: -120, opacity: 0, filter: "blur(20px)" },
@@ -64,7 +48,6 @@ export function HeroAnimated() {
         0.3,
       );
 
-      // 3. Heading flies in from the RIGHT
       tl.fromTo(
         headingRef.current,
         { x: 140, opacity: 0, filter: "blur(20px)" },
@@ -72,7 +55,6 @@ export function HeroAnimated() {
         0.45,
       );
 
-      // 4. Paragraph floats up from below
       tl.fromTo(
         paraRef.current,
         { y: 50, opacity: 0, filter: "blur(20px)" },
@@ -80,7 +62,6 @@ export function HeroAnimated() {
         0.6,
       );
 
-      // 5. CTA buttons pop in
       tl.fromTo(
         ctaRef.current,
         { y: 30, opacity: 0 },
@@ -88,8 +69,6 @@ export function HeroAnimated() {
         0.75,
       );
 
-      /* ─── SCROLL PARALLAX ───────────────────────────────────────────────── */
-      // Image moves UP slower (moves less px) — classic parallax
       gsap.to(imageWrapRef.current, {
         yPercent: -10,
         ease: "none",
@@ -101,7 +80,6 @@ export function HeroAnimated() {
         },
       });
 
-      // Text column moves UP faster
       gsap.to(textColRef.current, {
         yPercent: -32,
         ease: "none",
@@ -120,10 +98,8 @@ export function HeroAnimated() {
   return (
     <section
       ref={sectionRef}
-      className="w-full flex items-start md:items-center justify-between gap-12 flex-col md:flex-row max-md:pt-40 max-md:pb-30 pt-50 pb-30 xl:pt-70 xl:pb-50 overflow-hidden"
+      className="w-full flex items-start md:items-center justify-between gap-12 flex-col md:flex-row max-md:pt-36 max-md:pb-28 pt-44 pb-28 xl:pt-56 xl:pb-44 overflow-hidden"
     >
-      {/* ── TEXT COLUMN ─────────────────────────────────────────────────────── */}
-
       <div ref={textColRef} className="lg:flex-1">
         <div
           ref={taglineRef}
@@ -153,7 +129,7 @@ export function HeroAnimated() {
           <MagneticButton>
             <Link
               href="/projects"
-              className="group inline-flex items-center justify-center gap-3 bg-grey-900 text-grey-0 px-8 py-4 hover:bg-accent-500 hover:text-white transition-all duration-300 w-full"
+              className="group inline-flex items-center justify-center gap-3 bg-grey-900 text-grey-0 px-8 py-4 rounded-full hover:bg-grey-700 transition-all duration-300 w-full"
             >
               <span className="tracking-wide">View Projects</span>
               <ArrowRight
@@ -166,7 +142,7 @@ export function HeroAnimated() {
           <MagneticButton>
             <a
               href="#contact"
-              className="group inline-flex items-center justify-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 hover:border-accent-500 hover:text-accent-500 transition-all duration-300 w-full"
+              className="group inline-flex items-center justify-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 rounded-full hover:border-grey-900 hover:text-grey-900 transition-all duration-300 w-full"
             >
               <span className="tracking-wide">Contact Me</span>
             </a>
@@ -174,11 +150,9 @@ export function HeroAnimated() {
         </div>
       </div>
 
-      {/* ── IMAGE ───────────────────────────────────────────────────────────── */}
-
       <figure
         ref={imageWrapRef as React.RefObject<HTMLElement>}
-        className="bg-grey-100 h-120 overflow-hidden"
+        className="bg-grey-100 h-120 overflow-hidden rounded-2xl"
         style={{ willChange: "transform, border-radius, opacity" }}
       >
         <Image

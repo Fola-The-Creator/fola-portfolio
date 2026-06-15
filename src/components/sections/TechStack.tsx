@@ -52,7 +52,7 @@ export function TechStack() {
         <RevealOnScroll
           stagger={0.1}
           duration={0.2}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0.5 bg-grey-50"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0.5 bg-grey-50 rounded-2xl overflow-hidden"
         >
           {technologies.map((tech) => {
             const Icon = tech.icon;
@@ -73,7 +73,7 @@ export function TechStack() {
                     {tech.name}
                   </div>
                 </div>
-                <div className="mt-4 h-px w-0 bg-accent-500 group-hover:w-12 transition-all duration-500" />
+                <div className="mt-4 h-px w-0 bg-grey-900 group-hover:w-12 transition-all duration-500" />
               </div>
             );
           })}
@@ -85,13 +85,12 @@ export function TechStack() {
               <div className="text-grey-900 text-2xl tracking-tight group-hover:text-grey-0 transition-colors">
                 View More
               </div>
-
               <ArrowRight
                 size={18}
-                className="text-grey-900 group-hover:text-grey-0 group-hover:translate-x-1 transition-transform"
+                className="text-grey-900 group-hover:text-grey-0 group-hover:translate-x-1 transition-all"
               />
             </div>
-            <div className="mt-4 h-px w-0 bg-accent-500 group-hover:w-12 transition-all duration-500" />
+            <div className="mt-4 h-px w-0 bg-grey-900 group-hover:w-12 transition-all duration-500" />
           </Link>
         </RevealOnScroll>
       </SectionDiv>

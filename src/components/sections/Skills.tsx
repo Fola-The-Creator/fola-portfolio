@@ -49,12 +49,12 @@ export function Skills() {
           </h2>
         </RevealOnScroll>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-grey-50">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-grey-50 rounded-2xl overflow-hidden">
           {skills.map((skill, index) => {
             const Icon = skill.icon;
             return (
               <RevealOnScroll key={skill.title} delay={index * 0.1}>
-                <div className="h-full group bg-grey-0 p-8 hover:bg-grey-900 transition-all duration-300 ">
+                <div className="h-full group bg-grey-0 p-8 hover:bg-grey-900 transition-all duration-300">
                   <Icon
                     size={32}
                     className="text-grey-900 mb-6 group-hover:text-grey-0 transition-colors"

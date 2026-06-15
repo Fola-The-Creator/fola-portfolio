@@ -86,8 +86,7 @@ export function Projects() {
           {projects.map((project, index) => (
             <RevealOnScroll key={project.title} delay={index * 0.1}>
               <div className="group">
-                {/* Image */}
-                <div className="relative aspect-4/3 mb-6 overflow-hidden bg-grey-900">
+                <div className="relative aspect-4/3 mb-6 overflow-hidden bg-grey-900 rounded-2xl">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -98,7 +97,6 @@ export function Projects() {
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
                 </div>
 
-                {/* Content */}
                 <div>
                   <h3 className="text-2xl text-grey-900 font-medium mb-3 tracking-tight">
                     {project.title}
@@ -108,23 +106,21 @@ export function Projects() {
                     {project.description}
                   </p>
 
-                  {/* Tags */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs text-grey-900 border border-grey-200 px-3 py-1 tracking-wider"
+                        className="text-xs text-grey-900 border border-grey-200 px-3 py-1 rounded-full tracking-wider"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  {/* Links */}
                   <div className="flex gap-4">
                     <a
                       href={project.liveUrl}
-                      className="group/link inline-flex items-center gap-2 text-grey-900 text-sm tracking-wide hover:text-accent-500 transition-colors"
+                      className="group/link inline-flex items-center gap-2 text-grey-900 text-sm tracking-wide hover:text-grey-600 transition-colors"
                     >
                       <span>Live Demo</span>
                       <ExternalLink
@@ -135,7 +131,7 @@ export function Projects() {
 
                     <a
                       href={project.githubUrl}
-                      className="group/link inline-flex items-center gap-2 text-grey-900 text-sm tracking-wide hover:text-accent-500 transition-colors"
+                      className="group/link inline-flex items-center gap-2 text-grey-900 text-sm tracking-wide hover:text-grey-600 transition-colors"
                     >
                       <span>GitHub</span>
                       <Github
@@ -153,7 +149,7 @@ export function Projects() {
         <MagneticButton className="mx-auto">
           <Link
             href="/projects"
-            className="group inline-flex items-center justify-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 hover:border-accent-500 hover:text-accent-500 transition-all duration-300 w-full md:mt-24 mt-16"
+            className="group inline-flex items-center justify-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 rounded-full hover:border-grey-900 hover:bg-grey-900 hover:text-grey-0 transition-all duration-300 w-full md:mt-24 mt-16"
           >
             <span className="tracking-wide">View All Projects</span>
             <ArrowRight

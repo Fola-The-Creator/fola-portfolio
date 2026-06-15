@@ -22,19 +22,6 @@ export function About() {
     },
   ];
 
-  // const techStack = [
-  //   "Next.js",
-  //   "React.js",
-  //   "TypeScript",
-  //   "Figma",
-  //   "Tailwind CSS",
-  //   "GSAP",
-  //   "JavaScript",
-  //   "Git",
-  //   "REST APIs",
-  //   "Redux Toolkit",
-  // ];
-
   return (
     <section
       id="about"
@@ -48,7 +35,6 @@ export function About() {
         </RevealOnScroll>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Left Column - Bio */}
           <RevealOnScroll delay={0.2}>
             <div>
               <h2 className="text-4xl md:text-5xl text-grey-900 font-medium mb-8 leading-tight tracking-tight">
@@ -74,19 +60,8 @@ export function About() {
                 </p>
               </div>
 
-              {/* <div className="mt-8 flex flex-wrap gap-2">
-                {techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-4 py-2 border border-grey-100 text-grey-900 text-sm tracking-wide hover:border-accent-500 hover:text-accent-500 transition-all duration-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div> */}
-
               <MagneticButton className="mt-8">
-                <button className="group inline-flex items-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 hover:border-accent-500 hover:text-accent-500 transition-all duration-300">
+                <button className="group inline-flex items-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 rounded-full hover:border-grey-900 hover:bg-grey-900 hover:text-grey-0 transition-all duration-300">
                   <Download size={18} />
                   <span className="tracking-wide">Download Resume</span>
                 </button>
@@ -94,7 +69,6 @@ export function About() {
             </div>
           </RevealOnScroll>
 
-          {/* Right Column - Experience Timeline */}
           <RevealOnScroll delay={0.3} direction="left">
             <div className="space-y-8">
               <div>
@@ -106,7 +80,7 @@ export function About() {
                   {experience.map((item, index) => (
                     <div
                       key={index}
-                      className="border-l-2 border-grey-200 pl-6 hover:border-accent-500 transition-colors duration-300"
+                      className="border-l-2 border-grey-200 pl-6 hover:border-grey-900 transition-colors duration-300"
                     >
                       <div className="text-grey-700 text-sm tracking-wider mb-2">
                         {item.year}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
 import { SectionDiv } from "@/components/layouts";
+import { CategoryFilter } from "@/components/ui";
 import {
   SiNextdotjs,
   SiReact,
@@ -30,7 +31,6 @@ import {
   SiVercel,
   SiNetlify,
   SiGsap,
-  // SiZustand,
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 import { IconType } from "react-icons";
@@ -74,7 +74,6 @@ const technologies: Technology[] = [
   { icon: SiTailwindcss, name: "Tailwind CSS", category: "Styling" },
   { icon: SiSass, name: "Sass", category: "Styling" },
   { icon: SiRedux, name: "Redux Toolkit", category: "State Management" },
-  // { icon: SiZustand, name: "Zustand", category: "State Management" },
   { icon: SiReactquery, name: "React Query", category: "State Management" },
   { icon: SiGit, name: "Git", category: "Tools" },
   { icon: SiGithub, name: "GitHub", category: "Tools" },
@@ -88,7 +87,7 @@ const technologies: Technology[] = [
   { icon: DiPhotoshop, name: "Adobe Photoshop", category: "Design" },
 ];
 
-const categories: Category[] = [
+const categories = [
   "All",
   "Frontend",
   "Backend",
@@ -100,7 +99,7 @@ const categories: Category[] = [
   "Testing",
   "DevOps",
   "Design",
-];
+] as const satisfies readonly Category[];
 
 export default function TechPage() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
@@ -113,7 +112,7 @@ export default function TechPage() {
   return (
     <section id="tech" className="min-h-[85vh] py-32 border-t border-grey-200 bg-grey-0">
       <SectionDiv>
-        <RevealOnScroll>
+        <RevealOnScroll className="relative z-10">
           <div className="text-grey-700 tracking-[0.3em] text-sm mb-12 uppercase">
             Tech Stack
           </div>
@@ -122,21 +121,12 @@ export default function TechPage() {
             Technologies I work with
           </h2>
 
-          {/* Category Filter Tabs */}
-          <div className="flex flex-wrap gap-2 mb-12">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 text-xs tracking-wider uppercase transition-all duration-200 border ${
-                  activeCategory === cat
-                    ? "bg-accent-500 text-white border-accent-500"
-                    : "bg-grey-0 text-grey-700 border-grey-200 hover:border-accent-500 hover:text-accent-500"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          <div className="mb-12">
+            <CategoryFilter
+              categories={categories}
+              active={activeCategory}
+              onChange={setActiveCategory}
+            />
           </div>
         </RevealOnScroll>
 
@@ -144,7 +134,7 @@ export default function TechPage() {
           key={activeCategory}
           stagger={0.07}
           duration={0.25}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0.5 bg-grey-50"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0.5 bg-grey-50 rounded-2xl overflow-hidden"
         >
           {filtered.map((tech) => {
             const Icon = tech.icon;
@@ -165,7 +155,7 @@ export default function TechPage() {
                     {tech.name}
                   </div>
                 </div>
-                <div className="mt-4 h-px w-0 bg-accent-500 group-hover:w-12 transition-all duration-500" />
+                <div className="mt-4 h-px w-0 bg-grey-900 group-hover:w-12 transition-all duration-500" />
               </div>
             );
           })}

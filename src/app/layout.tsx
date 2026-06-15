@@ -4,7 +4,6 @@ import "@/styles/globals.css";
 import { CustomCursor, GSAPProvider } from "@/components/animations";
 import { Footer, Navigation } from "@/components/layouts";
 import { DarkThemeProvider } from "@/context/DarkThemeContext";
-// import { GridBackground } from "@/components/ui";
 
 export const viewport = {
   width: "device-width",
@@ -42,7 +41,6 @@ export default function RootLayout({
         <DarkThemeProvider>
           <GSAPProvider>
             <CustomCursor />
-            {/* <GridBackground /> */}
             <Navigation />
             {children}
             <Footer />

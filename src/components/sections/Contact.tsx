@@ -56,74 +56,31 @@ export function Contact() {
         </RevealOnScroll>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
-          {/* Form */}
           <RevealOnScroll delay={0.2} className="lg:col-span-3">
             <form onSubmit={handleSubmit} className="space-y-8">
-              <div className="relative">
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedInput("name")}
-                  onBlur={() => setFocusedInput(null)}
-                  className="w-full bg-transparent border-b-2 border-grey-100 text-grey-900 py-4 outline-none transition-all duration-300 focus:border-accent-500"
-                  required
-                />
-                <label
-                  className={`absolute left-0 transition-all duration-300 pointer-events-none tracking-wide ${
-                    focusedInput === "name" || formData.name
-                      ? "text-xs text-grey-700 -top-4"
-                      : "text-base text-grey-700 top-4"
-                  }`}
-                >
-                  Your Name
-                </label>
-              </div>
-
-              <div className="relative">
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedInput("email")}
-                  onBlur={() => setFocusedInput(null)}
-                  className="w-full bg-transparent border-b-2 border-grey-100 text-grey-900 py-4 outline-none transition-all duration-300 focus:border-accent-500"
-                  required
-                />
-                <label
-                  className={`absolute left-0 transition-all duration-300 pointer-events-none tracking-wide ${
-                    focusedInput === "email" || formData.email
-                      ? "text-xs text-grey-700 -top-4"
-                      : "text-base text-grey-700 top-4"
-                  }`}
-                >
-                  Email Address
-                </label>
-              </div>
-
-              <div className="relative">
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedInput("subject")}
-                  onBlur={() => setFocusedInput(null)}
-                  className="w-full bg-transparent border-b-2 border-grey-100 text-grey-900 py-4 outline-none transition-all duration-300 focus:border-accent-500"
-                  required
-                />
-                <label
-                  className={`absolute left-0 transition-all duration-300 pointer-events-none tracking-wide ${
-                    focusedInput === "subject" || formData.subject
-                      ? "text-xs text-grey-700 -top-4"
-                      : "text-base text-grey-700 top-4"
-                  }`}
-                >
-                  Subject
-                </label>
-              </div>
+              {(["name", "email", "subject"] as const).map((field) => (
+                <div key={field} className="relative">
+                  <input
+                    type={field === "email" ? "email" : "text"}
+                    name={field}
+                    value={formData[field]}
+                    onChange={handleChange}
+                    onFocus={() => setFocusedInput(field)}
+                    onBlur={() => setFocusedInput(null)}
+                    className="w-full bg-transparent border-b-2 border-grey-100 text-grey-900 py-4 outline-none transition-all duration-300 focus:border-grey-900"
+                    required
+                  />
+                  <label
+                    className={`absolute left-0 transition-all duration-300 pointer-events-none tracking-wide ${
+                      focusedInput === field || formData[field]
+                        ? "text-xs text-grey-700 -top-4"
+                        : "text-base text-grey-700 top-4"
+                    }`}
+                  >
+                    {field === "name" ? "Your Name" : field === "email" ? "Email Address" : "Subject"}
+                  </label>
+                </div>
+              ))}
 
               <div className="relative">
                 <textarea
@@ -133,7 +90,7 @@ export function Contact() {
                   onFocus={() => setFocusedInput("message")}
                   onBlur={() => setFocusedInput(null)}
                   rows={4}
-                  className="w-full bg-transparent border-b-2 border-grey-100 text-grey-900 py-4 outline-none transition-all duration-300 focus:border-accent-500 resize-none"
+                  className="w-full bg-transparent border-b-2 border-grey-100 text-grey-900 py-4 outline-none transition-all duration-300 focus:border-grey-900 resize-none"
                   required
                 />
                 <label
@@ -150,7 +107,7 @@ export function Contact() {
               <MagneticButton>
                 <button
                   type="submit"
-                  className="group inline-flex items-center gap-3 bg-grey-900 text-grey-0 px-8 py-4 hover:bg-accent-500 hover:text-white transition-all duration-300"
+                  className="group inline-flex items-center gap-3 bg-grey-900 text-grey-0 px-8 py-4 rounded-full hover:bg-grey-700 transition-all duration-300"
                 >
                   <span className="tracking-wide">Send Message</span>
                   <Send
@@ -162,12 +119,7 @@ export function Contact() {
             </form>
           </RevealOnScroll>
 
-          {/* Contact Info */}
-          <RevealOnScroll
-            delay={0.3}
-            direction="left"
-            className="lg:col-span-2"
-          >
+          <RevealOnScroll delay={0.3} direction="left" className="lg:col-span-2">
             <div className="space-y-8">
               <div>
                 <h3 className="text-grey-900 font-medium text-xl mb-4 tracking-tight">
@@ -182,10 +134,10 @@ export function Contact() {
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-12 h-12 border border-grey-100 flex items-center justify-center hover:border-accent-500 hover:text-accent-500 transition-all duration-300"
+                        className="w-11 h-11 border border-grey-200 rounded-full flex items-center justify-center hover:border-grey-900 hover:text-grey-900 transition-all duration-300"
                         aria-label={social.label}
                       >
-                        <Icon size={20} />
+                        <Icon size={18} />
                       </a>
                     );
                   })}
@@ -198,7 +150,7 @@ export function Contact() {
                 </h3>
                 <a
                   href="mailto:adebanjosamuel2002@gmail.com"
-                  className="text-grey-700 hover:text-accent-500 transition-colors"
+                  className="text-grey-700 hover:text-grey-900 transition-colors"
                 >
                   adebanjosamuel2002@gmail.com
                 </a>
