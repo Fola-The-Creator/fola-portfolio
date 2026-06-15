@@ -1,4 +1,4 @@
-import { Code2, Layout, Zap, Layers, Globe } from "lucide-react";
+import { Code2, Layout, Zap, Layers, Globe, Palette, Fingerprint, Smartphone } from "lucide-react";
 import { RevealOnScroll } from "../animations/RevealOnScroll";
 import { SectionDiv } from "../layouts";
 
@@ -32,6 +32,24 @@ const skills = [
     title: "Data & Integration",
     description:
       "Working with databases and external services, managing data flow and integration across distributed systems.",
+  },
+  {
+    icon: Palette,
+    title: "UI/UX Design",
+    description:
+      "Designing intuitive product experiences through research, wireframes, and high-fidelity prototypes.",
+  },
+  {
+    icon: Fingerprint,
+    title: "Brand Identity",
+    description:
+      "Building visual systems and brand languages that communicate clearly and consistently.",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile App Design",
+    description:
+      "Crafting polished mobile interfaces for iOS and Android that feel native and intentional.",
   },
 ];
 

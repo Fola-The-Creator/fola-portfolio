@@ -10,11 +10,11 @@ export function Footer() {
             © {year} Fola The Creator. All rights reserved.
           </div>
 
-          <div className="text-grey-600 text-sm tracking-wide">
+          {/* <div className="text-grey-600 text-sm tracking-wide">
             Built with{" "}
             <span className="text-grey-900 font-medium">Next.js</span> +{" "}
             <span className="text-grey-900 font-medium">Tailwind CSS</span>
-          </div>
+          </div> */}
         </div>
       </SectionDiv>
     </footer>

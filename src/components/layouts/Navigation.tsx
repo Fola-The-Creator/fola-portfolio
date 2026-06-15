@@ -30,6 +30,7 @@ export function Navigation() {
 
   // Set active state immediately when the path changes (page nav)
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (pathname === "/tech") setActiveSection("tech");
     else if (pathname === "/projects") setActiveSection("projects");
     else setActiveSection("");
@@ -121,9 +122,8 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent ${
-        isScrolled ? "bg-grey-0/90 backdrop-blur-md border-grey-200!" : "backdrop-blur-sm"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent ${isScrolled ? "bg-grey-0/90 backdrop-blur-md border-grey-200!" : "bg-grey-0/50 backdrop-blur-md"
+        }`}
     >
       <SectionDiv>
         <div className="flex items-center justify-between py-3">
@@ -138,23 +138,24 @@ export function Navigation() {
               <span className="flex flex-col justify-center items-center w-[16px] h-[12px] relative">
                 <span
                   ref={topBarRef}
-                  className="block absolute w-[14px] h-[1.5px] bg-current rounded-full"
+                  className="block absolute w-[14px] h-[2px] bg-current rounded-full"
                   style={{ top: "1px", transformOrigin: "center" }}
                 />
                 <span
                   ref={botBarRef}
-                  className="block absolute w-[14px] h-[1.5px] bg-current rounded-full"
+                  className="block absolute w-[14px] h-[2px] bg-current rounded-full"
                   style={{ bottom: "1px", transformOrigin: "center" }}
                 />
               </span>
             </button>
 
+            {/* Logo */}
             <Link
               href="/#"
               onClick={() => setIsMobileMenuOpen(false)}
               className="hover:opacity-70 transition-opacity"
             >
-              <Logo className="fill-grey-900 w-14" />
+              <Logo className="fill-grey-900 w-18" />
             </Link>
           </div>
 
@@ -169,15 +170,13 @@ export function Navigation() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-sm tracking-wide relative group transition-colors ${
-                      isActive ? "text-grey-900" : "text-grey-600 hover:text-grey-900"
-                    }`}
+                    className={`text-sm tracking-wide relative group transition-colors ${isActive ? "text-grey-900" : "text-grey-600 hover:text-grey-900"
+                      }`}
                   >
                     {link.label}
                     <span
-                      className={`absolute -bottom-1 left-0 h-px bg-grey-900 transition-all duration-300 ${
-                        isActive ? "w-full" : "w-0 group-hover:w-full"
-                      }`}
+                      className={`absolute -bottom-1 left-0 h-px bg-grey-900 transition-all duration-300 ${isActive ? "w-full" : "w-0 group-hover:w-full"
+                        }`}
                     />
                   </Link>
                 );
@@ -191,9 +190,8 @@ export function Navigation() {
               aria-label="Toggle dark mode"
             >
               <span
-                className={`transition-transform duration-500 ${
-                  theme === "dark" ? "rotate-180" : "rotate-0"
-                }`}
+                className={`transition-transform duration-500 ${theme === "dark" ? "rotate-180" : "rotate-0"
+                  }`}
               >
                 {theme === "dark" ? (
                   <TbSun className="text-base" />

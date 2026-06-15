@@ -25,9 +25,9 @@ const gilroy = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Fola The Creator | Portfolio",
+  title: "Fola Adebanjo | Full-Stack Designer & Developer",
   description:
-    "Crafting scalable web experiences with modern frontend technologies",
+    "Fola is a full-stack designer and developer based in Lagos, Nigeria. He designs and builds digital products across UI/UX, brand identity, web, and mobile, for clients around the world.",
 };
 
 export default function RootLayout({

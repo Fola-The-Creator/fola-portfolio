@@ -3,25 +3,30 @@ import { RevealOnScroll } from "../animations/RevealOnScroll";
 import { MagneticButton } from "../animations/MagneticButton";
 import { SectionDiv } from "../layouts";
 
-export function About() {
-  const experience = [
-    {
-      year: "2024 — Present",
-      role: "Senior Frontend Developer",
-      company: "Tech Solutions Inc",
-    },
-    {
-      year: "2022 — 2024",
-      role: "Frontend Developer",
-      company: "Digital Agency Co",
-    },
-    {
-      year: "2020 — 2022",
-      role: "Junior Frontend Developer",
-      company: "StartUp Labs",
-    },
-  ];
+const disciplines = [
+  {
+    title: "UI/UX Design",
+    description:
+      "Research, wireframes, and high-fidelity prototypes that make products feel effortless to use.",
+  },
+  {
+    title: "Brand and Visual Identity",
+    description:
+      "Visual systems and brand languages built to communicate clearly and stick in memory.",
+  },
+  {
+    title: "Web - Mobile Design and Development",
+    description:
+      "From pixel-perfect mockups to production-ready code. Design and engineering, in one place.",
+  },
+  // {
+  //   title: "Mobile App Design",
+  //   description:
+  //     "Polished mobile interfaces for iOS and Android that feel native, intentional, and fast.",
+  // },
+];
 
+export function About() {
   return (
     <section
       id="about"
@@ -38,25 +43,29 @@ export function About() {
           <RevealOnScroll delay={0.2}>
             <div>
               <h2 className="text-4xl md:text-5xl text-grey-900 font-medium mb-8 leading-tight tracking-tight">
-                Building scalable apps,
+                Designer by eye,
                 <br />
-                <span className="text-grey-500">end-to-end</span>
+                <span className="text-grey-500">developer by craft</span>
               </h2>
 
               <div className="space-y-4 text-grey-700 leading-relaxed">
                 <p>
-                  I&apos;m <strong>Fola</strong>, a full-stack developer focused
-                  on building performant, scalable applications. I enjoy turning
-                  complex problems into simple, intuitive solutions, from
-                  crafting seamless user interfaces to designing reliable
-                  backend systems.
+                  I&apos;m <strong>Fola</strong>, a full-stack designer and
+                  developer. I work at the intersection
+                  of design and engineering, building digital products that look
+                  great and work even better.
                 </p>
                 <p>
-                  My work is centered around modern JavaScript ecosystems,
-                  including React, Next.js, and Node.js, with a strong emphasis
-                  on TypeScript, clean architecture, and maintainable code. I
-                  prioritize performance, developer experience, and building
-                  systems that scale efficiently.
+                  Whether I&apos;m crafting a brand identity from scratch or
+                  shipping production code, I bring the same energy to both. For
+                  me, design without development is incomplete, and development
+                  without design is just plumbing.
+                </p>
+                <p>
+                  I care about the details: the right weight on a heading, the
+                  smooth interaction on a button, the architecture that
+                  won&apos;t break in six months. Every project gets the full
+                  picture.
                 </p>
               </div>
 
@@ -70,28 +79,25 @@ export function About() {
           </RevealOnScroll>
 
           <RevealOnScroll delay={0.3} direction="left">
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-2xl text-grey-900 font-medium mb-8 tracking-tight">
-                  Experience
-                </h3>
+            <div>
+              <h3 className="text-2xl text-grey-900 font-medium mb-8 tracking-tight">
+                What I Do
+              </h3>
 
-                <div className="space-y-8">
-                  {experience.map((item, index) => (
-                    <div
-                      key={index}
-                      className="border-l-2 border-grey-200 pl-6 hover:border-grey-900 transition-colors duration-300"
-                    >
-                      <div className="text-grey-700 text-sm tracking-wider mb-2">
-                        {item.year}
-                      </div>
-                      <div className="text-grey-900 text-xl font-medium mb-1 tracking-tight">
-                        {item.role}
-                      </div>
-                      <div className="text-grey-700">{item.company}</div>
+              <div className="space-y-8">
+                {disciplines.map((item) => (
+                  <div
+                    key={item.title}
+                    className="border-l-2 border-grey-200 pl-6 hover:border-grey-900 transition-colors duration-300"
+                  >
+                    <div className="text-grey-900 text-xl font-medium mb-1 tracking-tight">
+                      {item.title}
                     </div>
-                  ))}
-                </div>
+                    <div className="text-grey-700 leading-relaxed">
+                      {item.description}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </RevealOnScroll>

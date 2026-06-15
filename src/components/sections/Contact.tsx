@@ -5,7 +5,7 @@ import { useState } from "react";
 import { RevealOnScroll } from "../animations/RevealOnScroll";
 import { MagneticButton } from "../animations/MagneticButton";
 import { SectionDiv } from "../layouts";
-import { SiGithub, SiX } from "react-icons/si";
+import { SiGithub, SiX, SiInstagram } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
 
 export function Contact() {
@@ -29,9 +29,10 @@ export function Contact() {
   };
 
   const socialLinks = [
-    { icon: SiGithub, url: "https://github.com", label: "GitHub" },
-    { icon: FaLinkedin, url: "https://linkedin.com", label: "LinkedIn" },
-    { icon: SiX, url: "https://x.com", label: "Twitter" },
+    { icon: SiGithub, url: "https://github.com/Fola-The-Creator", label: "GitHub" },
+    { icon: FaLinkedin, url: "https://www.linkedin.com/in/samuel-adebanjo-245154230/", label: "LinkedIn" },
+    { icon: SiX, url: "https://x.com/folathecreator_", label: "Twitter" },
+    { icon: SiInstagram, url: "https://www.instagram.com/folathecreator_/", label: "Instagram" },
   ];
 
   return (
@@ -71,11 +72,10 @@ export function Contact() {
                     required
                   />
                   <label
-                    className={`absolute left-0 transition-all duration-300 pointer-events-none tracking-wide ${
-                      focusedInput === field || formData[field]
+                    className={`absolute left-0 transition-all duration-300 pointer-events-none tracking-wide ${focusedInput === field || formData[field]
                         ? "text-xs text-grey-700 -top-4"
                         : "text-base text-grey-700 top-4"
-                    }`}
+                      }`}
                   >
                     {field === "name" ? "Your Name" : field === "email" ? "Email Address" : "Subject"}
                   </label>
@@ -94,11 +94,10 @@ export function Contact() {
                   required
                 />
                 <label
-                  className={`absolute left-0 transition-all duration-300 pointer-events-none tracking-wide ${
-                    focusedInput === "message" || formData.message
+                  className={`absolute left-0 transition-all duration-300 pointer-events-none tracking-wide ${focusedInput === "message" || formData.message
                       ? "text-xs text-grey-700 -top-4"
                       : "text-base text-grey-700 top-4"
-                  }`}
+                    }`}
                 >
                   Your Message
                 </label>

@@ -98,14 +98,14 @@ export function HeroAnimated() {
   return (
     <section
       ref={sectionRef}
-      className="w-full flex items-start md:items-center justify-between gap-12 flex-col md:flex-row max-md:pt-36 max-md:pb-28 pt-44 pb-28 xl:pt-56 xl:pb-44 overflow-hidden"
+      className="w-full flex items-start lg:items-center justify-between gap-12 flex-col lg:flex-row max-md:pt-36 max-md:pb-28 pt-44 pb-28 xl:pt-56 xl:pb-44 overflow-hidden"
     >
       <div ref={textColRef} className="lg:flex-1">
         <div
           ref={taglineRef}
           className="text-grey-700 tracking-[0.3em] text-sm mb-6 uppercase"
         >
-          Full-Stack Developer
+          Full-Stack Designer and Developer
         </div>
 
         <h1
@@ -120,49 +120,55 @@ export function HeroAnimated() {
           ref={paraRef}
           className="text-grey-700 text-base md:text-xl max-w-2xl mb-12 leading-relaxed"
         >
-          I design and develop type-safe applications, from intuitive user
-          interfaces to robust backend systems. Focused on performance,
-          scalability, and clean architecture using modern technologies.
+          I design and build digital products across UI/UX, brand identity, web, and mobile. I bring ideas to life without compromising on either the craft or the code.
         </p>
 
-        <div ref={ctaRef} className="flex flex-col min-[500px]:flex-row gap-4">
-          <MagneticButton>
-            <Link
-              href="/projects"
-              className="group inline-flex items-center justify-center gap-3 bg-grey-900 text-grey-0 px-8 py-4 rounded-full hover:bg-grey-700 transition-all duration-300 w-full"
-            >
-              <span className="tracking-wide">View Projects</span>
-              <ArrowRight
-                size={18}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </Link>
-          </MagneticButton>
+        <div ref={ctaRef} className="flex flex-col gap-6">
+          <div className="flex flex-col min-[500px]:flex-row gap-4 flex-wrap">
+            <MagneticButton>
+              <Link
+                href="/projects"
+                className="group inline-flex items-center justify-center gap-3 bg-grey-900 text-grey-0 px-8 py-4 rounded-full hover:bg-grey-700 transition-all duration-300 w-full"
+              >
+                <span className="tracking-wide">View Projects</span>
+                <ArrowRight
+                  size={18}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
+              </Link>
+            </MagneticButton>
 
-          <MagneticButton>
-            <a
-              href="#contact"
-              className="group inline-flex items-center justify-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 rounded-full hover:border-grey-900 hover:text-grey-900 transition-all duration-300 w-full"
-            >
-              <span className="tracking-wide">Contact Me</span>
-            </a>
-          </MagneticButton>
+            <MagneticButton>
+              <a
+                href="#contact"
+                className="group inline-flex items-center justify-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 rounded-full hover:border-grey-900 transition-all duration-300 w-full"
+              >
+                <span className="tracking-wide">Contact Me</span>
+              </a>
+            </MagneticButton>
+          </div>
+
+          {/* <div className="inline-flex items-center gap-2 text-xs text-grey-600 tracking-wide">
+            <span className="w-2 h-2 rounded-full bg-grey-900 animate-pulse" />
+            Available for freelance
+          </div> */}
         </div>
       </div>
 
       <figure
         ref={imageWrapRef as React.RefObject<HTMLElement>}
-        className="bg-grey-100 h-120 overflow-hidden rounded-2xl"
+        className="bg-grey-100 aspect-square lg:h-120 overflow-hidden rounded-2xl"
         style={{ willChange: "transform, border-radius, opacity" }}
       >
         <Image
           ref={imageRef as React.RefObject<HTMLImageElement>}
-          src="/images/p-1.png"
-          alt="Hero"
+          src="https://res.cloudinary.com/diqcsujvk/image/upload/q_auto/f_auto/v1781538336/Fola_2_dzasua.png"
+          alt="Fola, Full-Stack Designer and Developer"
           width={1200}
           height={1200}
-          className="w-full h-full object-cover opacity-90 hover:scale-102 transition-all duration-300"
+          className="w-full h-full object-cover object-[0%_0%] hover:scale-102 transition-all duration-300"
           style={{ willChange: "transform" }}
+          priority
         />
       </figure>
     </section>

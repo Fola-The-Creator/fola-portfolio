@@ -10,8 +10,10 @@ import {
   SiFigma,
   SiRedux,
   SiGsap,
+  SiFramer,
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
+import { DiIllustrator, DiPhotoshop } from "react-icons/di";
 import { IconType } from "react-icons";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -33,6 +35,9 @@ const technologies: Technology[] = [
   { icon: TbApi, name: "REST APIs", category: "Integration" },
   { icon: SiFigma, name: "Figma", category: "Design" },
   { icon: SiRedux, name: "Redux Toolkit", category: "State Management" },
+  { icon: SiFramer, name: "Framer", category: "Design" },
+  { icon: DiIllustrator, name: "Illustrator", category: "Design" },
+  { icon: DiPhotoshop, name: "Photoshop", category: "Design" },
 ];
 
 export function TechStack() {
@@ -73,7 +78,7 @@ export function TechStack() {
                     {tech.name}
                   </div>
                 </div>
-                <div className="mt-4 h-px w-0 bg-grey-900 group-hover:w-12 transition-all duration-500" />
+                <div className="mt-4 h-px w-0 bg-grey-0 group-hover:w-12 transition-all duration-500" />
               </div>
             );
           })}
