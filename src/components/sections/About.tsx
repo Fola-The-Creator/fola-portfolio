@@ -5,6 +5,11 @@ import { SectionDiv } from "../layouts";
 
 const disciplines = [
   {
+    title: "Web - Mobile Design and Development",
+    description:
+      "From pixel-perfect mockups to production-ready code. Design and engineering, in one place.",
+  },
+  {
     title: "UI/UX Design",
     description:
       "Research, wireframes, and high-fidelity prototypes that make products feel effortless to use.",
@@ -13,11 +18,6 @@ const disciplines = [
     title: "Brand and Visual Identity",
     description:
       "Visual systems and brand languages built to communicate clearly and stick in memory.",
-  },
-  {
-    title: "Web - Mobile Design and Development",
-    description:
-      "From pixel-perfect mockups to production-ready code. Design and engineering, in one place.",
   },
   // {
   //   title: "Mobile App Design",
@@ -50,22 +50,13 @@ export function About() {
 
               <div className="space-y-4 text-grey-700 leading-relaxed">
                 <p>
-                  I&apos;m <strong>Fola</strong>, a full-stack designer and
-                  developer. I work at the intersection
-                  of design and engineering, building digital products that look
-                  great and work even better.
+                  I&apos;m <strong>Fola</strong>, a full-stack developer and designer. I work at the intersection of design and engineering, building digital products that look great and work even better.
                 </p>
                 <p>
-                  Whether I&apos;m crafting a brand identity from scratch or
-                  shipping production code, I bring the same energy to both. For
-                  me, design without development is incomplete, and development
-                  without design is just plumbing.
+                  Whether I&apos;m crafting a brand identity from scratch or shipping production code, I bring the same energy to both. For me, design without development is incomplete, and development without design is just plumbing.
                 </p>
                 <p>
-                  I care about the details: the right weight on a heading, the
-                  smooth interaction on a button, the architecture that
-                  won&apos;t break in six months. Every project gets the full
-                  picture.
+                  I care about the details: the right weight on a heading, the smooth interaction on a button, the architecture that won&apos;t break in six months. Every project gets the full picture.
                 </p>
               </div>
 

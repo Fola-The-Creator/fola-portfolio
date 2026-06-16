@@ -105,7 +105,7 @@ export function HeroAnimated() {
           ref={taglineRef}
           className="text-grey-700 tracking-[0.3em] text-sm mb-6 uppercase"
         >
-          Full-Stack Designer and Developer
+          Full-Stack Developer and Designer
         </div>
 
         <h1
@@ -120,7 +120,7 @@ export function HeroAnimated() {
           ref={paraRef}
           className="text-grey-700 text-base md:text-xl max-w-2xl mb-12 leading-relaxed"
         >
-          I design and build digital products across UI/UX, brand identity, web, and mobile. I bring ideas to life without compromising on either the craft or the code.
+          I design and build digital products across web, mobile, UI/UX, and brand identity. I bring ideas to life without compromising on either the craft or the code.
         </p>
 
         <div ref={ctaRef} className="flex flex-col gap-6">

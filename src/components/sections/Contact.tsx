@@ -30,7 +30,7 @@ export function Contact() {
 
   const socialLinks = [
     { icon: SiGithub, url: "https://github.com/Fola-The-Creator", label: "GitHub" },
-    { icon: FaLinkedin, url: "https://www.linkedin.com/in/samuel-adebanjo-245154230/", label: "LinkedIn" },
+    { icon: FaLinkedin, url: "https://www.linkedin.com/in/fola-adebanjo-245154230/", label: "LinkedIn" },
     { icon: SiX, url: "https://x.com/folathecreator_", label: "Twitter" },
     { icon: SiInstagram, url: "https://www.instagram.com/folathecreator_/", label: "Instagram" },
   ];
@@ -73,8 +73,8 @@ export function Contact() {
                   />
                   <label
                     className={`absolute left-0 transition-all duration-300 pointer-events-none tracking-wide ${focusedInput === field || formData[field]
-                        ? "text-xs text-grey-700 -top-4"
-                        : "text-base text-grey-700 top-4"
+                      ? "text-xs text-grey-700 -top-4"
+                      : "text-base text-grey-700 top-4"
                       }`}
                   >
                     {field === "name" ? "Your Name" : field === "email" ? "Email Address" : "Subject"}
@@ -95,8 +95,8 @@ export function Contact() {
                 />
                 <label
                   className={`absolute left-0 transition-all duration-300 pointer-events-none tracking-wide ${focusedInput === "message" || formData.message
-                      ? "text-xs text-grey-700 -top-4"
-                      : "text-base text-grey-700 top-4"
+                    ? "text-xs text-grey-700 -top-4"
+                    : "text-base text-grey-700 top-4"
                     }`}
                 >
                   Your Message

@@ -45,12 +45,12 @@ const skills = [
     description:
       "Building visual systems and brand languages that communicate clearly and consistently.",
   },
-  {
-    icon: Smartphone,
-    title: "Mobile App Design",
-    description:
-      "Crafting polished mobile interfaces for iOS and Android that feel native and intentional.",
-  },
+  // {
+  //   icon: Smartphone,
+  //   title: "Mobile App Design",
+  //   description:
+  //     "Crafting polished mobile interfaces for iOS and Android that feel native and intentional.",
+  // },
 ];
 
 export function Skills() {
