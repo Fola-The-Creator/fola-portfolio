@@ -144,22 +144,34 @@ export function HeroAnimated() {
       ref={sectionRef}
       className="w-full flex items-start lg:items-center justify-between gap-12 flex-col lg:flex-row max-md:pt-36 max-md:pb-28 pt-44 pb-28 xl:pt-56 xl:pb-44 overflow-hidden"
     >
-      <div ref={textColRef} className="lg:flex-1">
+      <div ref={textColRef} className="@container w-full min-w-0 lg:w-auto lg:flex-1">
         <div
           ref={taglineRef}
-          className="text-grey-700 tracking-[0.3em] text-sm mb-6 uppercase"
+          className="text-grey-700 tracking-[0.3em] text-sm mb-6 uppercase text-balance"
           style={{ willChange: "transform, opacity, filter" }}
         >
           Full-Stack Developer and Designer
         </div>
 
+        {/*
+          Sized from the column width, not the viewport. Measured in Gilroy,
+          "Building Scalable" is 7.56em wide and the longest word is 3.85em,
+          so 12.9cqi keeps the headline on two even lines from tablet up, and
+          24cqi gives one word per line on phones.
+        */}
         <h1
           ref={headingRef}
-          className="text-5xl md:text-7xl xl:text-8xl text-grey-900 font-medium mb-8 leading-[1.1] tracking-tight text-balance"
+          className="text-[length:min(4rem,24cqi)] sm:text-[length:min(6rem,12.9cqi)] text-grey-900 font-medium mb-8 leading-[1.08] tracking-tight"
           style={{ willChange: "transform, opacity, filter" }}
         >
-          Building Scalable
-          <span className="text-grey-500"> Digital Products</span>
+          <span className="block sm:whitespace-nowrap">
+            <span className="block sm:inline">Building</span>{" "}
+            <span className="block sm:inline">Scalable</span>
+          </span>
+          <span className="block sm:whitespace-nowrap text-grey-500">
+            <span className="block sm:inline">Digital</span>{" "}
+            <span className="block sm:inline">Products</span>
+          </span>
         </h1>
 
         <p
@@ -200,7 +212,7 @@ export function HeroAnimated() {
 
       <figure
         ref={imageWrapRef as React.RefObject<HTMLElement>}
-        className="bg-grey-100 aspect-square lg:h-120 overflow-hidden rounded-2xl"
+        className="bg-grey-100 aspect-square lg:h-96 xl:h-120 shrink-0 overflow-hidden rounded-2xl"
         style={{ willChange: "transform" }}
       >
         <Image

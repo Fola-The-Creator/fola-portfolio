@@ -10,6 +10,11 @@ export const viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
+  // Tints the browser bar on mobile to match the page.
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f0f0f" },
+  ],
 };
 
 const gilroy = localFont({
@@ -26,6 +31,7 @@ const gilroy = localFont({
 
 export const metadata: Metadata = {
   title: "Fola Adebanjo | Full-Stack Designer & Developer",
+  appleWebApp: { title: "Fola" },
   description:
     "Fola is a full-stack designer and developer based in Lagos, Nigeria. He designs and builds digital products across UI/UX, brand identity, web, and mobile, for clients around the world.",
 };
