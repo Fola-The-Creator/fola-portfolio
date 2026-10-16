@@ -155,22 +155,17 @@ export function HeroAnimated() {
 
         {/*
           Sized from the column width, not the viewport. Measured in Gilroy,
-          "Building Scalable" is 7.56em wide and the longest word is 3.85em,
-          so 12.9cqi keeps the headline on two even lines from tablet up, and
-          24cqi gives one word per line on phones.
+          "Building Scalable" is 7.56em wide, so 12.9cqi keeps the headline on
+          two even lines at every screen size.
         */}
         <h1
           ref={headingRef}
-          className="text-[length:min(4rem,24cqi)] sm:text-[length:min(6rem,12.9cqi)] text-grey-900 font-medium mb-8 leading-[1.08] tracking-tight"
+          className="text-[length:min(6rem,12.9cqi)] text-grey-900 font-medium mb-8 leading-[1.08] tracking-tight"
           style={{ willChange: "transform, opacity, filter" }}
         >
-          <span className="block sm:whitespace-nowrap">
-            <span className="block sm:inline">Building</span>{" "}
-            <span className="block sm:inline">Scalable</span>
-          </span>
-          <span className="block sm:whitespace-nowrap text-grey-500">
-            <span className="block sm:inline">Digital</span>{" "}
-            <span className="block sm:inline">Products</span>
+          <span className="block whitespace-nowrap">Building Scalable</span>
+          <span className="block whitespace-nowrap text-grey-500">
+            Digital Products
           </span>
         </h1>
 
