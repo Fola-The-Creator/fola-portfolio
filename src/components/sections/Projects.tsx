@@ -3,7 +3,12 @@ import Image from "next/image";
 import { RevealOnScroll } from "../animations/RevealOnScroll";
 import { SectionDiv } from "../layouts";
 import { MagneticButton } from "../animations";
-import { ConfidentialBadge, ProjectLinks } from "../ui";
+import {
+  PrivateBadge,
+  ProjectCardLink,
+  ProjectLinks,
+  ProjectVisitChip,
+} from "../ui";
 import Link from "next/link";
 import { projects } from "@/data/projects";
 
@@ -19,35 +24,36 @@ export function Projects() {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-medium text-grey-900 mb-16 leading-tight tracking-tight max-w-3xl">
-            Recent work, built and shipped
+            Some of my recent work
           </h2>
         </RevealOnScroll>
 
-        {/* One trigger with a stagger beats one trigger per card — the row
-            reveals as a single, even sweep. */}
+        {/* One trigger for the whole row, so the cards sweep in evenly. */}
         <RevealOnScroll
           stagger={0.09}
           duration={0.6}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12"
         >
           {featured.map((project) => (
-            <div key={project.id} className="group flex flex-col h-full">
-              <div className="relative aspect-4/3 mb-6 overflow-hidden bg-grey-900 rounded-2xl">
-                {project.confidential && <ConfidentialBadge />}
+            <article
+              key={project.id}
+              className="group relative flex flex-col h-full rounded-2xl"
+            >
+              <ProjectCardLink project={project} />
+
+              <div className="relative aspect-4/3 mb-6 overflow-hidden bg-grey-100 rounded-2xl ring-1 ring-grey-200">
+                {project.isPrivate && <PrivateBadge />}
+                <ProjectVisitChip project={project} />
                 <Image
                   src={project.imageUrl}
-                  alt={
-                    project.confidential
-                      ? `${project.title} — preview withheld under NDA`
-                      : project.title
-                  }
+                  alt={project.title}
                   fill
+                  quality={90}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className={`object-cover group-hover:scale-105 transition-transform duration-700 ${
-                    project.confidential ? "grayscale" : ""
+                  className={`object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out ${
+                    project.isPrivate ? "grayscale" : ""
                   }`}
                 />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
               </div>
 
               <div className="flex flex-col flex-1">
@@ -77,7 +83,7 @@ export function Projects() {
                   animateIcons
                 />
               </div>
-            </div>
+            </article>
           ))}
         </RevealOnScroll>
 

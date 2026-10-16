@@ -1,17 +1,17 @@
 import { Project } from "@/types/project";
-import { CONFIDENTIAL_IMAGE_URL, GITHUB_PROFILE_URL } from "@/data/site";
+import { GITHUB_PROFILE_URL, PRIVATE_PROJECT_IMAGE_URL } from "@/data/site";
 
 export const projects: Project[] = [
   {
     id: "ezibond-africa-website",
     title: "EziBond Africa",
     description:
-      "A multi-page website for EziBond Africa, built so a first-time visitor understands what they do before they finish scrolling.",
+      "A multi-page website for EziBond Africa, designed to be clear and easy to get around on any device.",
     longDescription:
-      "A full multi-page site built in Next.js and TypeScript. Fast page loads, a clear content hierarchy, and layouts that hold their shape from a small phone to a wide desktop. The structure leaves the team room to keep adding pages without the design falling apart.",
+      "The site loads fast, reads well on mobile and pulls its content from a custom CMS I built alongside it.",
     imageUrl:
       "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115586/IMG_0019_lpjrq9.jpg",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
     category: "Websites",
     liveUrl: "https://www.ezibondafrica.org/",
     githubUrl: GITHUB_PROFILE_URL,
@@ -21,38 +21,51 @@ export const projects: Project[] = [
     id: "mauada-storefront",
     title: "Mauada Storefront",
     description:
-      "An e-commerce site for Mauada, a luxury fashion label — product pages that give the clothes room to breathe.",
+      "An online store for Mauada, a luxury fashion brand, with large product imagery and a simple path to checkout.",
     longDescription:
-      "A storefront for a luxury label, built in Next.js and TypeScript. Large imagery, restrained typography, and a browsing flow that stays out of the way — from the first look at a collection through to checkout.",
+      "The design keeps the focus on the clothes, with big visuals, plenty of white space and a checkout that's quick to get through. Products and orders run through a custom admin dashboard I also built.",
     imageUrl:
       "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115930/IMG_0024_qofwyy.jpg",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "E-Commerce"],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
     category: "E-Commerce",
     liveUrl: "https://mauada-web.vercel.app/",
     githubUrl: GITHUB_PROFILE_URL,
     featured: true,
   },
   {
-    id: "saas-payroll-platform",
-    title: "SaaS Payroll Platform",
+    id: "ezibond-africa-cms",
+    title: "EziBond Africa CMS",
     description:
-      "Led frontend development on a payroll platform, turning dense, rules-heavy workflows into screens an admin can use without training.",
+      "A custom admin dashboard and CMS the EziBond Africa team uses to manage their website.",
     longDescription:
-      "I led the frontend build of a payroll SaaS product: component architecture, application state, and the interface patterns the rest of the product was built on. The client and product are covered by an NDA, so the names stay out of it — the work itself was the same as any other: ship something fast, clear, and maintainable.",
-    imageUrl: CONFIDENTIAL_IMAGE_URL,
-    tags: ["React", "TypeScript", "Tailwind CSS", "REST APIs"],
-    category: "Web Apps",
+      "A content management system built with React, TypeScript and Vite on a Supabase backend. The team publishes pages, updates content and manages media from one dashboard, without touching any code.",
+    imageUrl:
+      "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115588/IMG_0020_z1klrn.jpg",
+    tags: ["React", "TypeScript", "Vite", "Supabase"],
+    category: "Dashboards",
     githubUrl: GITHUB_PROFILE_URL,
     featured: true,
-    confidential: true,
+  },
+  {
+    id: "mauada-admin-dashboard",
+    title: "Mauada Admin Dashboard",
+    description:
+      "The admin dashboard behind the Mauada store, used to manage products, orders and stock.",
+    longDescription:
+      "The Mauada team uses it every day to add products, track orders and keep inventory up to date.",
+    imageUrl:
+      "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115930/IMG_0025_qzmcrn.jpg",
+    tags: ["React", "TypeScript", "Vite", "Supabase"],
+    category: "Dashboards",
+    githubUrl: GITHUB_PROFILE_URL,
   },
   {
     id: "seelinder-website",
     title: "Seelinder",
     description:
-      "A multi-page website for Seelinder, built around clarity: simple navigation, quick pages, and nothing in the way.",
+      "A multi-page website for Seelinder with a clean layout and simple navigation.",
     longDescription:
-      "Built in Next.js and TypeScript, with a component structure that keeps new pages cheap to add. Responsive from the first breakpoint, with care spent on the small things — spacing, type scale, and how one section hands off to the next.",
+      "Light pages and navigation that's easy to follow, whether you're on a phone or a big screen.",
     imageUrl:
       "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115588/IMG_0023_daxxiw.jpg",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -64,12 +77,12 @@ export const projects: Project[] = [
     id: "viorge-denim-store",
     title: "Viorge D' Denim",
     description:
-      "An e-commerce site for Viorge D' Denim, from the first product view through to checkout.",
+      "An online store for Viorge D' Denim, from browsing the collection to checkout.",
     longDescription:
-      "A denim storefront built in Next.js and TypeScript. Clean product pages, a browsing flow that does not get in the way, and a responsive layout that holds up on every screen size.",
+      "Product pages are clean and focused, and shopping feels just as good on a phone as it does on a laptop.",
     imageUrl:
       "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115929/IMG_0028_mtbbtf.jpg",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "E-Commerce"],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     category: "E-Commerce",
     liveUrl: "https://www.viorgeddenim.com/",
     githubUrl: GITHUB_PROFILE_URL,
@@ -78,9 +91,9 @@ export const projects: Project[] = [
     id: "rovabox-website",
     title: "Rovabox",
     description:
-      "A multi-page website for Rovabox, built to explain the product quickly and get people to the next step.",
+      "A multi-page website for Rovabox that gets the message across quickly.",
     longDescription:
-      "Next.js and TypeScript, with a layout built around one job: move a visitor from landing to action without friction. Fast, responsive, and simple for the team to maintain.",
+      "Every page has one clear job, and the layout adapts nicely from mobile to desktop.",
     imageUrl:
       "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115930/IMG_0026_mlsizl.jpg",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -92,9 +105,9 @@ export const projects: Project[] = [
     id: "tways-website",
     title: "Tways",
     description:
-      "A multi-page website for Tways, a fashion brand — visual, quick to load, and true to the brand's voice.",
+      "A multi-page website for Tways, a fashion brand, with an image-led design.",
     longDescription:
-      "Built in Next.js and TypeScript. Imagery leads, type stays quiet, and the layout adapts cleanly from phone to desktop without losing the brand's character.",
+      "Big visuals lead every page, paired with simple typography and a layout that holds up on any screen size.",
     imageUrl:
       "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115930/IMG_0027_tbgq0x.jpg",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -103,42 +116,29 @@ export const projects: Project[] = [
     githubUrl: GITHUB_PROFILE_URL,
   },
   {
-    id: "ezibond-africa-dashboard",
-    title: "EziBond Africa — Admin Dashboard & CMS",
+    id: "saas-payroll-platform",
+    title: "SaaS Payroll Platform",
     description:
-      "The admin side of the EziBond Africa site, so the team can publish and update content without touching code.",
+      "Led frontend development for a SaaS payroll product that helps businesses pay their staff and manage employee records.",
     longDescription:
-      "A custom CMS and admin dashboard built with React, TypeScript, and Vite. The team manages their own content and media from one place — no developer in the loop, no redeploy needed. It is an internal tool, so there is no public demo.",
-    imageUrl:
-      "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115588/IMG_0020_z1klrn.jpg",
-    tags: ["React", "TypeScript", "Vite", "REST APIs"],
-    category: "Dashboards",
+      "I led frontend development on this product, building the screens for payroll runs and employee records, along with the shared components the rest of the app is built on.",
+    imageUrl: PRIVATE_PROJECT_IMAGE_URL,
+    tags: ["React", "TypeScript", "Tailwind CSS"],
+    category: "Web Apps",
     githubUrl: GITHUB_PROFILE_URL,
-  },
-  {
-    id: "mauada-admin-dashboard",
-    title: "Mauada — Admin Dashboard",
-    description:
-      "The admin side of Mauada: products, orders, and stock handled from a single dashboard.",
-    longDescription:
-      "Built with React, TypeScript, and Vite. The team adds products, tracks orders, and keeps stock accurate without leaving the dashboard. It is an internal tool, so there is no public demo.",
-    imageUrl:
-      "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115930/IMG_0025_qzmcrn.jpg",
-    tags: ["React", "TypeScript", "Vite", "REST APIs"],
-    category: "Dashboards",
-    githubUrl: GITHUB_PROFILE_URL,
+    isPrivate: true,
   },
   {
     id: "professional-services-marketplace",
     title: "Professional Services Marketplace",
     description:
-      "A full-stack web application for a professional marketplace — the interface, the API, and everything in between.",
+      "A full-stack marketplace web app that connects clients with professionals.",
     longDescription:
-      "A two-sided marketplace connecting clients with professionals. I worked across the stack: the interface, the application logic, and the API layer that ties them together. Covered by an NDA, so the brand stays unnamed.",
-    imageUrl: CONFIDENTIAL_IMAGE_URL,
-    tags: ["Next.js", "TypeScript", "Node.js", "REST APIs"],
+      "I built this marketplace end to end, from the interface down to the database, using Next.js, TypeScript and Supabase.",
+    imageUrl: PRIVATE_PROJECT_IMAGE_URL,
+    tags: ["Next.js", "TypeScript", "Supabase"],
     category: "Web Apps",
     githubUrl: GITHUB_PROFILE_URL,
-    confidential: true,
+    isPrivate: true,
   },
 ];

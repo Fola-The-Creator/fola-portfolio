@@ -158,8 +158,8 @@ export function HeroAnimated() {
           className="text-5xl md:text-7xl xl:text-8xl text-grey-900 font-medium mb-8 leading-[1.1] tracking-tight text-balance"
           style={{ willChange: "transform, opacity, filter" }}
         >
-          Digital products,
-          <span className="text-grey-500"> built end to end</span>
+          Building Scalable
+          <span className="text-grey-500"> Digital Products</span>
         </h1>
 
         <p
@@ -167,9 +167,8 @@ export function HeroAnimated() {
           className="text-grey-700 text-base md:text-xl max-w-2xl mb-12 leading-relaxed"
           style={{ willChange: "transform, opacity, filter" }}
         >
-          I design and build for the web — the interface, the brand, and the
-          code underneath it. One person from start to finish, so nothing gets
-          lost in the handoff.
+          I design and build websites, web apps and dashboards for businesses
+          that want their product to look good and work well.
         </p>
 
         <div ref={ctaRef} className="flex flex-col gap-6">

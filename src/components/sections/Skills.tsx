@@ -7,43 +7,43 @@ const skills = [
     icon: Code2,
     title: "Full-Stack Development",
     description:
-      "End-to-end applications: the interface people touch and the services and APIs behind it.",
+      "I build the interface and the backend behind it, usually with Next.js, React and Supabase.",
   },
   {
     icon: Layers,
     title: "System & API Design",
     description:
-      "Clean architectures and REST APIs that stay readable as the product grows.",
+      "Clean data models and APIs that stay easy to work with as a product grows.",
   },
   {
     icon: Layout,
     title: "Responsive Interfaces",
     description:
-      "Interfaces that feel right on a small phone and a wide monitor, with accessibility built in rather than bolted on.",
+      "Layouts that look right on every screen, from a small phone to a wide monitor.",
   },
   {
     icon: Zap,
     title: "Performance",
     description:
-      "Fast first loads and smooth interactions — code splitting, sensible caching, and rendering that does not fight the browser.",
+      "Fast pages and smooth interactions. I keep an eye on load times from day one.",
   },
   {
     icon: Globe,
     title: "Data & Integration",
     description:
-      "Databases and third-party services wired up so data moves where it should, reliably.",
+      "Connecting databases and third-party services so data ends up where it should.",
   },
   {
     icon: Palette,
     title: "UI/UX Design",
     description:
-      "Product experiences shaped through research, wireframes, and high-fidelity prototypes.",
+      "Research, wireframes and prototypes that make a product easy to use.",
   },
   {
     icon: Fingerprint,
     title: "Brand Identity",
     description:
-      "Visual systems that say the same thing in every place the brand shows up.",
+      "Visual identities that stay consistent, from the logo to the last page of the site.",
   },
 ];
 

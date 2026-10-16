@@ -6,7 +6,7 @@ interface ProjectLinksProps {
   iconSize?: number;
   /** Wrapper classes, so each card keeps its own spacing. */
   className?: string;
-  /** Small icon nudge on hover — used on the home page cards. */
+  /** Small icon nudge on hover, used on the home page cards. */
   animateIcons?: boolean;
 }
 
@@ -16,11 +16,8 @@ export function ProjectLinks({
   className = "flex gap-6",
   animateIcons = false,
 }: ProjectLinksProps) {
-  const linkClass = `${animateIcons ? "group/link " : ""}inline-flex items-center gap-2 text-grey-900 text-sm tracking-wide hover:text-grey-600 transition-colors`;
-
-  const lockedReason = project.confidential
-    ? "Private deployment — this work is covered by an NDA"
-    : "Internal tool — no public demo available";
+  // `relative z-20` keeps these clickable above the full-card link.
+  const linkClass = `${animateIcons ? "group/link " : ""}relative z-20 inline-flex items-center gap-2 text-grey-900 text-sm tracking-wide hover:text-grey-600 transition-colors`;
 
   return (
     <div className={className}>
@@ -44,8 +41,7 @@ export function ProjectLinks({
       ) : (
         <span
           aria-disabled="true"
-          title={lockedReason}
-          className="inline-flex items-center gap-2 text-grey-400 text-sm tracking-wide cursor-not-allowed select-none"
+          className="relative z-20 inline-flex items-center gap-2 text-grey-400 text-sm tracking-wide cursor-not-allowed select-none"
         >
           <span>Live Demo</span>
           <Lock size={iconSize} />

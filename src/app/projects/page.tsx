@@ -6,7 +6,13 @@ import Image from "next/image";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
 import { SectionDiv } from "@/components/layouts";
 import { MagneticButton } from "@/components/animations";
-import { CategoryFilter, ConfidentialBadge, ProjectLinks } from "@/components/ui";
+import {
+  CategoryFilter,
+  PrivateBadge,
+  ProjectCardLink,
+  ProjectLinks,
+  ProjectVisitChip,
+} from "@/components/ui";
 import Link from "next/link";
 import { useProjects } from "@/hooks/useProjects";
 import { CV_URL } from "@/data/site";
@@ -14,7 +20,7 @@ import type { ProjectCategory } from "@/types/project";
 
 type FilterCategory = "All" | ProjectCategory;
 
-/** Display order for the filter pills — only categories in use are shown. */
+/** Display order for the filter pills. Only categories in use are shown. */
 const CATEGORY_ORDER = [
   "Websites",
   "E-Commerce",
@@ -41,7 +47,7 @@ export default function ProjectsPage() {
   const featuredProjects = projects.filter((p) => p.featured);
 
   // The grid draws its dividers with a 1px gap over a grey background, so a
-  // part-filled last row would show as a grey slab. These blank cells close it.
+  // part-filled last row would show as a grey block. These blank cells close it.
   const fillersMd = (2 - (filtered.length % 2)) % 2;
   const fillersLg = (3 - (filtered.length % 3)) % 3;
   const fillers = Array.from({ length: Math.max(fillersMd, fillersLg) });
@@ -59,14 +65,13 @@ export default function ProjectsPage() {
               Selected Work
             </div>
             <h1 className="text-5xl md:text-7xl text-grey-900 font-medium leading-tight tracking-tight max-w-4xl mb-8">
-              Real work for
+              Things I&apos;ve
               <br />
-              <span className="text-grey-500">real businesses</span>
+              <span className="text-grey-500">designed and built</span>
             </h1>
             <p className="text-grey-700 md:text-lg max-w-xl leading-relaxed">
-              Marketing sites, online stores, admin dashboards, and product
-              work. Most of it you can click through. A few are covered by an
-              NDA, so you will see the shape of the work but not the client.
+              A mix of websites, online stores, dashboards and web apps for
+              clients I&apos;ve enjoyed working with.
             </p>
           </RevealOnScroll>
 
@@ -110,29 +115,28 @@ export default function ProjectsPage() {
             className="space-y-px bg-grey-200 rounded-2xl overflow-hidden"
           >
             {featuredProjects.map((project) => (
-              <div
+              <article
                 key={project.id}
-                className="group bg-grey-0 grid grid-cols-1 lg:grid-cols-2"
+                className="group relative bg-grey-0 grid grid-cols-1 lg:grid-cols-2"
               >
-                <div className="relative aspect-video lg:aspect-auto overflow-hidden bg-grey-900">
-                  {project.confidential && <ConfidentialBadge />}
+                <ProjectCardLink project={project} />
+
+                <div className="relative aspect-video lg:aspect-auto lg:min-h-105 overflow-hidden bg-grey-100">
+                  {project.isPrivate && <PrivateBadge />}
+                  <ProjectVisitChip project={project} />
                   <Image
                     src={project.imageUrl}
-                    alt={
-                      project.confidential
-                        ? `${project.title} — preview withheld under NDA`
-                        : project.title
-                    }
+                    alt={project.title}
                     fill
+                    quality={90}
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className={`object-cover group-hover:scale-105 transition-transform duration-700 ${
-                      project.confidential ? "grayscale" : ""
+                    className={`object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out ${
+                      project.isPrivate ? "grayscale" : ""
                     }`}
                   />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
                 </div>
 
-                <div className="p-10 lg:p-14 flex flex-col justify-between min-h-[320px]">
+                <div className="p-10 lg:p-14 flex flex-col justify-between min-h-80">
                   <div>
                     <div className="flex items-center justify-between mb-6">
                       <span className="text-xs tracking-widest uppercase text-grey-700">
@@ -167,7 +171,7 @@ export default function ProjectsPage() {
                     <ProjectLinks project={project} />
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </RevealOnScroll>
         </SectionDiv>
@@ -176,13 +180,13 @@ export default function ProjectsPage() {
       {/* All Projects with Filter */}
       <section className="py-24 bg-grey-0">
         <SectionDiv>
-          <RevealOnScroll className="relative z-10">
+          <RevealOnScroll className="relative z-30">
             <div className="text-grey-700 tracking-[0.3em] text-sm mb-12 uppercase">
               All Projects
             </div>
 
             <h2 className="text-4xl md:text-5xl text-grey-900 font-medium mb-10 leading-tight tracking-tight max-w-3xl">
-              Everything I&apos;ve built
+              Browse by type
             </h2>
 
             <div className="mb-14">
@@ -202,23 +206,25 @@ export default function ProjectsPage() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-grey-200 rounded-2xl overflow-hidden"
           >
             {filtered.map((project) => (
-              <div key={project.id} className="group bg-grey-0 flex flex-col">
-                <div className="relative aspect-video overflow-hidden bg-grey-900 shrink-0">
-                  {project.confidential && <ConfidentialBadge />}
+              <article
+                key={project.id}
+                className="group relative bg-grey-0 flex flex-col"
+              >
+                <ProjectCardLink project={project} />
+
+                <div className="relative aspect-video overflow-hidden bg-grey-100 shrink-0">
+                  {project.isPrivate && <PrivateBadge />}
+                  <ProjectVisitChip project={project} />
                   <Image
                     src={project.imageUrl}
-                    alt={
-                      project.confidential
-                        ? `${project.title} — preview withheld under NDA`
-                        : project.title
-                    }
+                    alt={project.title}
                     fill
+                    quality={90}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className={`object-cover group-hover:scale-105 transition-transform duration-700 ${
-                      project.confidential ? "grayscale" : ""
+                    className={`object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out ${
+                      project.isPrivate ? "grayscale" : ""
                     }`}
                   />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/15 transition-colors duration-400" />
                 </div>
 
                 <div className="p-8 flex flex-col flex-1">
@@ -252,7 +258,7 @@ export default function ProjectsPage() {
 
                   <ProjectLinks project={project} className="flex gap-6 mt-auto" />
                 </div>
-              </div>
+              </article>
             ))}
 
             {fillers.map((_, index) => (
@@ -283,8 +289,7 @@ export default function ProjectsPage() {
                   in mind?
                 </h2>
                 <p className="text-grey-700 leading-relaxed max-w-md">
-                  Tell me what you are building. If I am the right person for
-                  it, I will say so — and if I am not, I will tell you that too.
+                  Send me a message and tell me a bit about it.
                 </p>
               </div>
 

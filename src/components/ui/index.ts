@@ -1,4 +1,5 @@
 export { GridBackground } from "./GridBackground";
 export { CategoryFilter } from "./CategoryFilter";
 export { ProjectLinks } from "./ProjectLinks";
-export { ConfidentialBadge } from "./ConfidentialBadge";
+export { PrivateBadge } from "./PrivateBadge";
+export { ProjectCardLink, ProjectVisitChip } from "./ProjectCardLink";

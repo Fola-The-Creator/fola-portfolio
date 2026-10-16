@@ -8,17 +8,17 @@ const disciplines = [
   {
     title: "Web & Mobile Development",
     description:
-      "From the first mockup to production code. Design and engineering handled in one place, by one person.",
+      "Websites and apps built with Next.js, React and TypeScript, from the first screen to launch day.",
   },
   {
     title: "UI/UX Design",
     description:
-      "Research, wireframes, and prototypes that make a product feel obvious to use.",
+      "Wireframes, prototypes and polished interfaces in Figma, ready to build.",
   },
   {
     title: "Brand and Visual Identity",
     description:
-      "Logos, type, colour, and the rules that hold them together — so the brand looks like itself everywhere.",
+      "Logos, colour palettes and type systems that make a brand easy to recognise.",
   },
 ];
 
@@ -47,20 +47,18 @@ export function About() {
               <div className="space-y-4 text-grey-700 leading-relaxed">
                 <p>
                   I&apos;m <strong>Fola</strong>, a full-stack developer and
-                  designer. I work where design and engineering meet, building
-                  products that look right and hold up once real people start
-                  using them.
+                  designer based in Lagos. I design products and I build them,
+                  and I enjoy both equally.
                 </p>
                 <p>
-                  A brand identity from scratch or a production codebase — the
-                  standard is the same either way. Design without development
-                  stays a picture. Development without design is just plumbing.
-                  I&apos;d rather do both properly.
+                  Most of my work is websites, online stores and dashboards that
+                  need to look premium and load fast. I work mostly in Next.js,
+                  React and TypeScript, and I design everything in Figma first.
                 </p>
                 <p>
-                  I care about the details most people never name: the weight of
-                  a heading, how a button answers a click, the architecture that
-                  still makes sense six months from now.
+                  I sweat the small stuff: spacing, type, how a button feels
+                  when you press it. If something feels off, I keep at it until
+                  it doesn&apos;t.
                 </p>
               </div>
 

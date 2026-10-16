@@ -15,7 +15,7 @@
     --color-grey-800: #262626;
     --color-grey-900: #171717;
 
-    /* Accent remapped to grey — accent-500 is pure black */
+    /* Accent remapped to grey: accent-500 is pure black */
     --color-accent-50: #fafafa;
     --color-accent-100: #f5f5f5;
     --color-accent-200: #e5e5e5;
@@ -46,7 +46,7 @@
     --color-grey-800: #e5e5e5;
     --color-grey-900: #f5f5f5;
 
-    /* Accent remapped to grey — accent-500 is near-white */
+    /* Accent remapped to grey: accent-500 is near-white */
     --color-accent-50: #171717;
     --color-accent-100: #1f1f1f;
     --color-accent-200: #262626;
@@ -103,20 +103,46 @@ html {
   scrollbar-width: none;
 }
 
-/* Custom scrollbar for the page */
+/* Headings break into even lines, paragraphs avoid lonely last words. */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--color-grey-900);
+  color: var(--color-grey-0);
+}
+
+/* Keyboard focus only, so mouse clicks stay clean. Kept in the base layer
+   so utilities can adjust it per element. */
+@layer base {
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--color-grey-900);
+    outline-offset: 3px;
+  }
+}
+
+/* Scrollbar follows the active theme. */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: var(--color-grey-0);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: var(--color-grey-300);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--color-grey-400);
 }
