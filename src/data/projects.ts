@@ -1,142 +1,144 @@
 import { Project } from "@/types/project";
+import { CONFIDENTIAL_IMAGE_URL, GITHUB_PROFILE_URL } from "@/data/site";
 
 export const projects: Project[] = [
   {
-    id: "ecommerce-platform",
-    title: "E-Commerce Platform",
+    id: "ezibond-africa-website",
+    title: "EziBond Africa",
     description:
-      "A full-featured e-commerce solution with cart management, payment integration, and real-time inventory tracking.",
+      "A multi-page website for EziBond Africa, built so a first-time visitor understands what they do before they finish scrolling.",
     longDescription:
-      "Built with performance and conversion in mind. Handles thousands of SKUs with sub-second search, Stripe Checkout integration, and a custom CMS for merchants.",
+      "A full multi-page site built in Next.js and TypeScript. Fast page loads, a clear content hierarchy, and layouts that hold their shape from a small phone to a wide desktop. The structure leaves the team room to keep adding pages without the design falling apart.",
     imageUrl:
-      "https://images.unsplash.com/photo-1755018237309-bb3f5efeb2c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwYXJjaGl0ZWN0dXJlJTIwYmxhY2slMjB3aGl0ZXxlbnwxfHx8fDE3NzIzNTI2MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-    category: "Web Apps",
-    liveUrl: "#",
-    githubUrl: "#",
-    year: "2024",
-    featured: true,
-  },
-  {
-    id: "saas-dashboard",
-    title: "SaaS Dashboard",
-    description:
-      "Modern analytics dashboard with real-time data visualization, user management, and responsive design.",
-    longDescription:
-      "Complex data rendered beautifully. WebSocket-powered live charts, role-based access control, and a white-label theming system for enterprise clients.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1746897785251-48e52e82b269?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdlb21ldHJpYyUyMHBhdHRlcm4lMjBtb25vY2hyb21lfGVufDF8fHx8MTc3MjI3NTI3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["React", "Tailwind", "Recharts", "Node.js"],
-    category: "Dashboards",
-    liveUrl: "#",
-    githubUrl: "#",
-    year: "2024",
-    featured: true,
-  },
-  {
-    id: "portfolio-cms",
-    title: "Portfolio CMS",
-    description:
-      "Content management system for creative professionals with drag-and-drop builder and SEO optimization.",
-    longDescription:
-      "Empowers non-technical creatives to own their presence. MDX-powered content, image optimization pipeline, and Lighthouse score consistently above 98.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1624792054848-98a03bbb8546?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB0ZWNobm9sb2d5JTIwd29ya3NwYWNlJTIwZ3JheXNjYWxlfGVufDF8fHx8MTc3MjM4MDg4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Next.js", "MDX", "Vercel", "Prisma"],
+      "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115586/IMG_0019_lpjrq9.jpg",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     category: "Websites",
-    liveUrl: "#",
-    githubUrl: "#",
-    year: "2024",
-  },
-  {
-    id: "design-system",
-    title: "Design System",
-    description:
-      "Component library with comprehensive documentation, accessibility features, and theming support.",
-    longDescription:
-      "50+ production-grade components, WCAG 2.1 AA compliant, with Storybook docs, visual regression tests, and a token-based theming architecture.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1622271125051-73022c9deeaa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwZGVzaWduJTIwYmxhY2slMjB3aGl0ZSUyMHRleHR1cmV8ZW58MXx8fHwxNzcyMzgwODg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["React", "Storybook", "TypeScript"],
-    category: "Design",
-    liveUrl: "#",
-    githubUrl: "#",
-    year: "2023",
+    liveUrl: "https://www.ezibondafrica.org/",
+    githubUrl: GITHUB_PROFILE_URL,
     featured: true,
   },
   {
-    id: "realtime-chat",
-    title: "Real-Time Chat",
+    id: "mauada-storefront",
+    title: "Mauada Storefront",
     description:
-      "Messaging application with WebSocket integration, typing indicators, and file sharing capabilities.",
+      "An e-commerce site for Mauada, a luxury fashion label — product pages that give the clothes room to breathe.",
     longDescription:
-      "Sub-100ms latency messaging, end-to-end encrypted rooms, S3-backed file uploads, and presence indicators across thousands of concurrent users.",
+      "A storefront for a luxury label, built in Next.js and TypeScript. Large imagery, restrained typography, and a browsing flow that stays out of the way — from the first look at a collection through to checkout.",
     imageUrl:
-      "https://images.unsplash.com/photo-1703075514536-c4081f0ac959?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwYXJjaGl0ZWN0dXJhbCUyMHN0cnVjdHVyZSUyMGNvbnRyYXN0fGVufDF8fHx8MTc3MjM4MDg4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["React", "Socket.io", "Node.js", "Redis"],
+      "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115930/IMG_0024_qofwyy.jpg",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "E-Commerce"],
+    category: "E-Commerce",
+    liveUrl: "https://mauada-web.vercel.app/",
+    githubUrl: GITHUB_PROFILE_URL,
+    featured: true,
+  },
+  {
+    id: "saas-payroll-platform",
+    title: "SaaS Payroll Platform",
+    description:
+      "Led frontend development on a payroll platform, turning dense, rules-heavy workflows into screens an admin can use without training.",
+    longDescription:
+      "I led the frontend build of a payroll SaaS product: component architecture, application state, and the interface patterns the rest of the product was built on. The client and product are covered by an NDA, so the names stay out of it — the work itself was the same as any other: ship something fast, clear, and maintainable.",
+    imageUrl: CONFIDENTIAL_IMAGE_URL,
+    tags: ["React", "TypeScript", "Tailwind CSS", "REST APIs"],
     category: "Web Apps",
-    liveUrl: "#",
-    githubUrl: "#",
-    year: "2023",
+    githubUrl: GITHUB_PROFILE_URL,
+    featured: true,
+    confidential: true,
   },
   {
-    id: "finance-tracker",
-    title: "Finance Tracker",
+    id: "seelinder-website",
+    title: "Seelinder",
     description:
-      "Personal finance management app with budget tracking, expense categorization, and financial insights.",
+      "A multi-page website for Seelinder, built around clarity: simple navigation, quick pages, and nothing in the way.",
     longDescription:
-      "Connects to 10,000+ banks via Plaid, auto-categorizes transactions with ML, and generates beautiful monthly reports you actually want to read.",
+      "Built in Next.js and TypeScript, with a component structure that keeps new pages cheap to add. Responsive from the first breakpoint, with care spent on the small things — spacing, type scale, and how one section hands off to the next.",
     imageUrl:
-      "https://images.unsplash.com/photo-1771582979625-593f6bd17e43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb25vY2hyb21lJTIwZ3JpZCUyMHBhdHRlcm4lMjBkZXNpZ258ZW58MXx8fHwxNzcyMzgwODg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Next.js", "Prisma", "PostgreSQL", "Plaid"],
-    category: "Mobile Apps",
-    liveUrl: "#",
-    githubUrl: "#",
-    year: "2023",
-  },
-  {
-    id: "ui-component-kit",
-    title: "UI Component Kit",
-    description:
-      "Open-source collection of animated, accessible React components built for modern web apps.",
-    longDescription:
-      "Used by 800+ developers. Zero-dependency animations, full keyboard navigation, dark mode out of the box, and comprehensive TypeScript types.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1622271125051-73022c9deeaa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwZGVzaWduJTIwYmxhY2slMjB3aGl0ZSUyMHRleHR1cmV8ZW58MXx8fHwxNzcyMzgwODg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["React", "TypeScript", "GSAP", "npm"],
-    category: "Open Source",
-    liveUrl: "#",
-    githubUrl: "#",
-    year: "2023",
-  },
-  {
-    id: "agency-website",
-    title: "Agency Website",
-    description:
-      "High-impact marketing website for a creative agency, with GSAP-powered scroll storytelling.",
-    longDescription:
-      "Full scroll-jacking narrative experience, WebGL background effects, CMS-driven case studies, and a contact flow that converts at 14%.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1624792054848-98a03bbb8546?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB0ZWNobm9sb2d5JTIwd29ya3NwYWNlJTIwZ3JheXNjYWxlfGVufDF8fHx8MTc3MjM4MDg4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Next.js", "GSAP", "Sanity", "Framer Motion"],
+      "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115588/IMG_0023_daxxiw.jpg",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     category: "Websites",
-    liveUrl: "#",
-    githubUrl: "#",
-    year: "2022",
+    liveUrl: "https://www.seelinder.com/",
+    githubUrl: GITHUB_PROFILE_URL,
   },
   {
-    id: "inventory-manager",
-    title: "Inventory Manager",
+    id: "viorge-denim-store",
+    title: "Viorge D' Denim",
     description:
-      "Warehouse ops dashboard with barcode scanning, automated reorder triggers, and supplier integrations.",
+      "An e-commerce site for Viorge D' Denim, from the first product view through to checkout.",
     longDescription:
-      "Replaced manual spreadsheets for a 40-person operations team. Reduced stockout incidents by 67% in the first quarter post-launch.",
+      "A denim storefront built in Next.js and TypeScript. Clean product pages, a browsing flow that does not get in the way, and a responsive layout that holds up on every screen size.",
     imageUrl:
-      "https://images.unsplash.com/photo-1746897785251-48e52e82b269?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdlb21ldHJpYyUyMHBhdHRlcm4lMjBtb25vY2hyb21lfGVufDF8fHx8MTc3MjI3NTI3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["React", "Node.js", "MongoDB", "REST APIs"],
+      "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115929/IMG_0028_mtbbtf.jpg",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "E-Commerce"],
+    category: "E-Commerce",
+    liveUrl: "https://www.viorgeddenim.com/",
+    githubUrl: GITHUB_PROFILE_URL,
+  },
+  {
+    id: "rovabox-website",
+    title: "Rovabox",
+    description:
+      "A multi-page website for Rovabox, built to explain the product quickly and get people to the next step.",
+    longDescription:
+      "Next.js and TypeScript, with a layout built around one job: move a visitor from landing to action without friction. Fast, responsive, and simple for the team to maintain.",
+    imageUrl:
+      "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115930/IMG_0026_mlsizl.jpg",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    category: "Websites",
+    liveUrl: "https://www.rovabox.com/",
+    githubUrl: GITHUB_PROFILE_URL,
+  },
+  {
+    id: "tways-website",
+    title: "Tways",
+    description:
+      "A multi-page website for Tways, a fashion brand — visual, quick to load, and true to the brand's voice.",
+    longDescription:
+      "Built in Next.js and TypeScript. Imagery leads, type stays quiet, and the layout adapts cleanly from phone to desktop without losing the brand's character.",
+    imageUrl:
+      "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115930/IMG_0027_tbgq0x.jpg",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    category: "Websites",
+    liveUrl: "https://twaysempire.com/",
+    githubUrl: GITHUB_PROFILE_URL,
+  },
+  {
+    id: "ezibond-africa-dashboard",
+    title: "EziBond Africa — Admin Dashboard & CMS",
+    description:
+      "The admin side of the EziBond Africa site, so the team can publish and update content without touching code.",
+    longDescription:
+      "A custom CMS and admin dashboard built with React, TypeScript, and Vite. The team manages their own content and media from one place — no developer in the loop, no redeploy needed. It is an internal tool, so there is no public demo.",
+    imageUrl:
+      "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115588/IMG_0020_z1klrn.jpg",
+    tags: ["React", "TypeScript", "Vite", "REST APIs"],
     category: "Dashboards",
-    liveUrl: "#",
-    githubUrl: "#",
-    year: "2022",
+    githubUrl: GITHUB_PROFILE_URL,
+  },
+  {
+    id: "mauada-admin-dashboard",
+    title: "Mauada — Admin Dashboard",
+    description:
+      "The admin side of Mauada: products, orders, and stock handled from a single dashboard.",
+    longDescription:
+      "Built with React, TypeScript, and Vite. The team adds products, tracks orders, and keeps stock accurate without leaving the dashboard. It is an internal tool, so there is no public demo.",
+    imageUrl:
+      "https://res.cloudinary.com/diqcsujvk/image/upload/v1792115930/IMG_0025_qzmcrn.jpg",
+    tags: ["React", "TypeScript", "Vite", "REST APIs"],
+    category: "Dashboards",
+    githubUrl: GITHUB_PROFILE_URL,
+  },
+  {
+    id: "professional-services-marketplace",
+    title: "Professional Services Marketplace",
+    description:
+      "A full-stack web application for a professional marketplace — the interface, the API, and everything in between.",
+    longDescription:
+      "A two-sided marketplace connecting clients with professionals. I worked across the stack: the interface, the application logic, and the API layer that ties them together. Covered by an NDA, so the brand stays unnamed.",
+    imageUrl: CONFIDENTIAL_IMAGE_URL,
+    tags: ["Next.js", "TypeScript", "Node.js", "REST APIs"],
+    category: "Web Apps",
+    githubUrl: GITHUB_PROFILE_URL,
+    confidential: true,
   },
 ];

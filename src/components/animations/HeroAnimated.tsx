@@ -1,14 +1,17 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { MagneticButton } from "./MagneticButton";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 export function HeroAnimated() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -20,17 +23,55 @@ export function HeroAnimated() {
   const paraRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
+  // The CSS hover transition is only attached once the intro is done. While
+  // GSAP is tweening the same transform, a CSS transition on it fights back.
+  const [introDone, setIntroDone] = useState(false);
+
+  useGSAP(
+    () => {
       const section = sectionRef.current;
       if (!section) return;
 
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      const textCol = textColRef.current;
+      const imageWrap = imageWrapRef.current;
+      const copy = [
+        taglineRef.current,
+        headingRef.current,
+        paraRef.current,
+        ctaRef.current,
+      ].filter(Boolean) as HTMLElement[];
+
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        gsap.set([imageWrap, imageRef.current, ...copy], {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          scale: 1,
+          filter: "none",
+        });
+        setIntroDone(true);
+        return;
+      }
+
+      const tl = gsap.timeline({
+        defaults: { ease: "power3.out", force3D: true },
+        onComplete: () => {
+          // Drop the leftover transforms and compositing hints so hover states
+          // and scroll parallax start from a clean element.
+          gsap.set(copy, { clearProps: "filter,willChange" });
+          setIntroDone(true);
+        },
+      });
 
       tl.fromTo(
-        imageWrapRef.current,
-        { scale: 0.01, borderRadius: "200%", opacity: 0, transformOrigin: "center center" },
-        { scale: 1, borderRadius: "1rem", opacity: 1, duration: 2, ease: "expo.out" },
+        imageWrap,
+        {
+          scale: 0.01,
+          borderRadius: "200%",
+          opacity: 0,
+          transformOrigin: "center center",
+        },
+        { scale: 1, borderRadius: "1rem", opacity: 1, duration: 1.6, ease: "expo.out" },
         0,
       );
 
@@ -43,57 +84,60 @@ export function HeroAnimated() {
 
       tl.fromTo(
         taglineRef.current,
-        { x: -120, opacity: 0, filter: "blur(20px)" },
+        { x: -120, opacity: 0, filter: "blur(16px)" },
         { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.8 },
-        0.3,
+        0.25,
       );
 
       tl.fromTo(
         headingRef.current,
-        { x: 140, opacity: 0, filter: "blur(20px)" },
+        { x: 140, opacity: 0, filter: "blur(16px)" },
         { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.9 },
-        0.45,
+        0.4,
       );
 
       tl.fromTo(
         paraRef.current,
-        { y: 50, opacity: 0, filter: "blur(20px)" },
+        { y: 50, opacity: 0, filter: "blur(16px)" },
         { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.8 },
-        0.6,
+        0.55,
       );
 
       tl.fromTo(
         ctaRef.current,
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.7 },
-        0.75,
+        0.7,
       );
 
-      gsap.to(imageWrapRef.current, {
+      // Parallax. Separate from the intro timeline so the two never write to
+      // the same property at the same time.
+      gsap.to(imageWrap, {
         yPercent: -10,
         ease: "none",
         scrollTrigger: {
           trigger: section,
           start: "top top",
           end: "bottom top",
-          scrub: true,
+          scrub: 0.5,
+          invalidateOnRefresh: true,
         },
       });
 
-      gsap.to(textColRef.current, {
+      gsap.to(textCol, {
         yPercent: -32,
         ease: "none",
         scrollTrigger: {
           trigger: section,
           start: "top top",
           end: "bottom top",
-          scrub: true,
+          scrub: 0.5,
+          invalidateOnRefresh: true,
         },
       });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+    },
+    { scope: sectionRef },
+  );
 
   return (
     <section
@@ -104,6 +148,7 @@ export function HeroAnimated() {
         <div
           ref={taglineRef}
           className="text-grey-700 tracking-[0.3em] text-sm mb-6 uppercase"
+          style={{ willChange: "transform, opacity, filter" }}
         >
           Full-Stack Developer and Designer
         </div>
@@ -111,16 +156,20 @@ export function HeroAnimated() {
         <h1
           ref={headingRef}
           className="text-5xl md:text-7xl xl:text-8xl text-grey-900 font-medium mb-8 leading-[1.1] tracking-tight text-balance"
+          style={{ willChange: "transform, opacity, filter" }}
         >
-          Building Scalable
-          <span className="text-grey-500"> Digital Products</span>
+          Digital products,
+          <span className="text-grey-500"> built end to end</span>
         </h1>
 
         <p
           ref={paraRef}
           className="text-grey-700 text-base md:text-xl max-w-2xl mb-12 leading-relaxed"
+          style={{ willChange: "transform, opacity, filter" }}
         >
-          I design and build digital products across web, mobile, UI/UX, and brand identity. I bring ideas to life without compromising on either the craft or the code.
+          I design and build for the web — the interface, the brand, and the
+          code underneath it. One person from start to finish, so nothing gets
+          lost in the handoff.
         </p>
 
         <div ref={ctaRef} className="flex flex-col gap-6">
@@ -128,7 +177,7 @@ export function HeroAnimated() {
             <MagneticButton>
               <Link
                 href="/projects"
-                className="group inline-flex items-center justify-center gap-3 bg-grey-900 text-grey-0 px-8 py-4 rounded-full hover:bg-grey-700 transition-all duration-300 w-full"
+                className="group inline-flex items-center justify-center gap-3 bg-grey-900 text-grey-0 px-8 py-4 rounded-full hover:bg-grey-700 transition-colors duration-300 w-full"
               >
                 <span className="tracking-wide">View Projects</span>
                 <ArrowRight
@@ -141,24 +190,19 @@ export function HeroAnimated() {
             <MagneticButton>
               <a
                 href="#contact"
-                className="group inline-flex items-center justify-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 rounded-full hover:border-grey-900 transition-all duration-300 w-full"
+                className="group inline-flex items-center justify-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 rounded-full hover:border-grey-900 transition-colors duration-300 w-full"
               >
                 <span className="tracking-wide">Contact Me</span>
               </a>
             </MagneticButton>
           </div>
-
-          {/* <div className="inline-flex items-center gap-2 text-xs text-grey-600 tracking-wide">
-            <span className="w-2 h-2 rounded-full bg-grey-900 animate-pulse" />
-            Available for freelance
-          </div> */}
         </div>
       </div>
 
       <figure
         ref={imageWrapRef as React.RefObject<HTMLElement>}
         className="bg-grey-100 aspect-square lg:h-120 overflow-hidden rounded-2xl"
-        style={{ willChange: "transform, border-radius, opacity" }}
+        style={{ willChange: "transform" }}
       >
         <Image
           ref={imageRef as React.RefObject<HTMLImageElement>}
@@ -166,8 +210,9 @@ export function HeroAnimated() {
           alt="Fola, Full-Stack Designer and Developer"
           width={1200}
           height={1200}
-          className="w-full h-full object-cover object-[0%_0%] hover:scale-102 transition-all duration-300"
-          style={{ willChange: "transform" }}
+          className={`w-full h-full object-cover object-[0%_0%] ${
+            introDone ? "transition-transform duration-300 hover:scale-102" : ""
+          }`}
           priority
         />
       </figure>

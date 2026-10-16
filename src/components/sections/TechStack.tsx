@@ -50,13 +50,14 @@ export function TechStack() {
           </div>
 
           <h2 className="text-4xl md:text-5xl text-grey-900 font-medium mb-16 leading-tight tracking-tight max-w-3xl">
-            Technologies I work with
+            Tools I build with
           </h2>
         </RevealOnScroll>
 
         <RevealOnScroll
-          stagger={0.1}
-          duration={0.2}
+          stagger={0.05}
+          duration={0.45}
+          distance={24}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0.5 bg-grey-50 rounded-2xl overflow-hidden"
         >
           {technologies.map((tech) => {
@@ -64,7 +65,7 @@ export function TechStack() {
             return (
               <div
                 key={tech.name}
-                className="group bg-grey-0 p-8 hover:bg-grey-900 transition-all duration-300"
+                className="group bg-grey-0 p-8 hover:bg-grey-900 transition-colors duration-300"
               >
                 <div className="text-grey-700 text-xs tracking-wider mb-3 uppercase group-hover:text-grey-100 transition-colors">
                   {tech.category}
@@ -84,7 +85,7 @@ export function TechStack() {
           })}
           <Link
             href="/tech"
-            className="group bg-grey-0 p-8 hover:bg-grey-900 transition-all duration-300"
+            className="group bg-grey-0 p-8 hover:bg-grey-900 transition-colors duration-300"
           >
             <div className="flex items-center gap-3">
               <div className="text-grey-900 text-2xl tracking-tight group-hover:text-grey-0 transition-colors">

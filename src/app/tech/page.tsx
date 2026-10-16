@@ -118,7 +118,7 @@ export default function TechPage() {
           </div>
 
           <h2 className="text-4xl md:text-5xl text-grey-900 font-medium mb-10 leading-tight tracking-tight max-w-3xl">
-            Technologies I work with
+            Tools I build with
           </h2>
 
           <div className="mb-12">
@@ -132,8 +132,9 @@ export default function TechPage() {
 
         <RevealOnScroll
           key={activeCategory}
-          stagger={0.07}
-          duration={0.25}
+          stagger={0.05}
+          duration={0.45}
+          distance={24}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0.5 bg-grey-50 rounded-2xl overflow-hidden"
         >
           {filtered.map((tech) => {
@@ -141,7 +142,7 @@ export default function TechPage() {
             return (
               <div
                 key={tech.name}
-                className="group bg-grey-0 p-8 hover:bg-grey-900 transition-all duration-300"
+                className="group bg-grey-0 p-8 hover:bg-grey-900 transition-colors duration-300"
               >
                 <div className="text-grey-700 text-xs tracking-wider mb-3 uppercase group-hover:text-grey-100 transition-colors">
                   {tech.category}

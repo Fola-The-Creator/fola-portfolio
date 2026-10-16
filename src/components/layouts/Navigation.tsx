@@ -36,36 +36,43 @@ export function Navigation() {
     else setActiveSection("");
   }, [pathname]);
 
-  // Scroll-based active section detection for homepage hash links
+  // One passive, frame-throttled scroll listener handles both the nav
+  // background and the active-section highlight. Measuring layout on every
+  // raw scroll event is what makes a page feel heavy under the thumb.
   useEffect(() => {
-    if (pathname !== "/") return;
+    const isHome = pathname === "/";
+    let frame = 0;
 
-    const handleScroll = () => {
+    const read = () => {
+      frame = 0;
       setIsScrolled(window.scrollY > 20);
+
+      if (!isHome) return;
 
       const sections = ["about", "tech", "projects", "skills", "contact"];
       for (const section of sections) {
         const el = document.getElementById(section);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section);
-            return;
-          }
+        if (!el) continue;
+
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+          setActiveSection(section);
+          return;
         }
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname]);
+    const handleScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(read);
+    };
 
-  // Track scrolled state on non-home pages too (for nav bg)
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [pathname]);
 
   // 2-bar → X animation
   useEffect(() => {

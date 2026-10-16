@@ -1,4 +1,4 @@
-import { Code2, Layout, Zap, Layers, Globe, Palette, Fingerprint, Smartphone } from "lucide-react";
+import { Code2, Layout, Zap, Layers, Globe, Palette, Fingerprint } from "lucide-react";
 import { RevealOnScroll } from "../animations/RevealOnScroll";
 import { SectionDiv } from "../layouts";
 
@@ -7,50 +7,44 @@ const skills = [
     icon: Code2,
     title: "Full-Stack Development",
     description:
-      "Building end-to-end applications, from responsive user interfaces to scalable backend services and APIs.",
+      "End-to-end applications: the interface people touch and the services and APIs behind it.",
   },
   {
     icon: Layers,
     title: "System & API Design",
     description:
-      "Designing clean, efficient architectures and RESTful APIs with a focus on scalability and maintainability.",
+      "Clean architectures and REST APIs that stay readable as the product grows.",
   },
   {
     icon: Layout,
     title: "Responsive Interfaces",
     description:
-      "Creating intuitive, accessible user interfaces that adapt seamlessly across devices and screen sizes.",
+      "Interfaces that feel right on a small phone and a wide monitor, with accessibility built in rather than bolted on.",
   },
   {
     icon: Zap,
-    title: "Performance Optimization",
+    title: "Performance",
     description:
-      "Optimizing applications for speed and efficiency through code-splitting, caching strategies, and efficient rendering.",
+      "Fast first loads and smooth interactions — code splitting, sensible caching, and rendering that does not fight the browser.",
   },
   {
     icon: Globe,
     title: "Data & Integration",
     description:
-      "Working with databases and external services, managing data flow and integration across distributed systems.",
+      "Databases and third-party services wired up so data moves where it should, reliably.",
   },
   {
     icon: Palette,
     title: "UI/UX Design",
     description:
-      "Designing intuitive product experiences through research, wireframes, and high-fidelity prototypes.",
+      "Product experiences shaped through research, wireframes, and high-fidelity prototypes.",
   },
   {
     icon: Fingerprint,
     title: "Brand Identity",
     description:
-      "Building visual systems and brand languages that communicate clearly and consistently.",
+      "Visual systems that say the same thing in every place the brand shows up.",
   },
-  // {
-  //   icon: Smartphone,
-  //   title: "Mobile App Design",
-  //   description:
-  //     "Crafting polished mobile interfaces for iOS and Android that feel native and intentional.",
-  // },
 ];
 
 export function Skills() {
@@ -59,35 +53,41 @@ export function Skills() {
       <SectionDiv>
         <RevealOnScroll>
           <div className="text-grey-700 font-medium tracking-[0.3em] text-sm mb-12 uppercase">
-            Core Competencies
+            Capabilities
           </div>
 
           <h2 className="text-4xl md:text-5xl text-grey-900 mb-16 leading-tight tracking-tight max-w-3xl">
-            What I bring to the table
+            What I do best
           </h2>
         </RevealOnScroll>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-grey-50 rounded-2xl overflow-hidden">
-          {skills.map((skill, index) => {
+        <RevealOnScroll
+          stagger={0.07}
+          duration={0.55}
+          distance={24}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-grey-50 rounded-2xl overflow-hidden"
+        >
+          {skills.map((skill) => {
             const Icon = skill.icon;
             return (
-              <RevealOnScroll key={skill.title} delay={index * 0.1}>
-                <div className="h-full group bg-grey-0 p-8 hover:bg-grey-900 transition-all duration-300">
-                  <Icon
-                    size={32}
-                    className="text-grey-900 mb-6 group-hover:text-grey-0 transition-colors"
-                  />
-                  <h3 className="text-xl font-medium text-grey-900 mb-3 tracking-tight group-hover:text-grey-0 transition-colors">
-                    {skill.title}
-                  </h3>
-                  <p className="text-grey-700 leading-relaxed group-hover:text-grey-100 transition-colors">
-                    {skill.description}
-                  </p>
-                </div>
-              </RevealOnScroll>
+              <div
+                key={skill.title}
+                className="h-full group bg-grey-0 p-8 hover:bg-grey-900 transition-colors duration-300"
+              >
+                <Icon
+                  size={32}
+                  className="text-grey-900 mb-6 group-hover:text-grey-0 transition-colors"
+                />
+                <h3 className="text-xl font-medium text-grey-900 mb-3 tracking-tight group-hover:text-grey-0 transition-colors">
+                  {skill.title}
+                </h3>
+                <p className="text-grey-700 leading-relaxed group-hover:text-grey-100 transition-colors">
+                  {skill.description}
+                </p>
+              </div>
             );
           })}
-        </div>
+        </RevealOnScroll>
       </SectionDiv>
     </section>
   );

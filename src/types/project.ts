@@ -1,10 +1,8 @@
 export type ProjectCategory =
-  | "Web Apps"
   | "Websites"
+  | "E-Commerce"
   | "Dashboards"
-  | "Design"
-  | "Mobile Apps"
-  | "Open Source";
+  | "Web Apps";
 
 export interface Project {
   id: string;
@@ -13,9 +11,12 @@ export interface Project {
   longDescription?: string;
   tags: string[];
   imageUrl: string;
+  /** Omitted when there is nothing public to link to — the UI greys the button out. */
   liveUrl?: string;
   githubUrl?: string;
   category: ProjectCategory;
   featured?: boolean;
   year?: string;
+  /** Covered by an NDA: client stays unnamed and the preview is a stand-in image. */
+  confidential?: boolean;
 }

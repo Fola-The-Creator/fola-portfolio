@@ -7,6 +7,7 @@ import { MagneticButton } from "../animations/MagneticButton";
 import { SectionDiv } from "../layouts";
 import { SiGithub, SiX, SiInstagram } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
+import { GITHUB_PROFILE_URL } from "@/data/site";
 
 export function Contact() {
   const [focusedInput, setFocusedInput] = useState<string | null>(null);
@@ -29,7 +30,7 @@ export function Contact() {
   };
 
   const socialLinks = [
-    { icon: SiGithub, url: "https://github.com/Fola-The-Creator", label: "GitHub" },
+    { icon: SiGithub, url: GITHUB_PROFILE_URL, label: "GitHub" },
     { icon: FaLinkedin, url: "https://www.linkedin.com/in/fola-adebanjo-245154230/", label: "LinkedIn" },
     { icon: SiX, url: "https://x.com/folathecreator_", label: "Twitter" },
     { icon: SiInstagram, url: "https://www.instagram.com/folathecreator_/", label: "Instagram" },
@@ -47,17 +48,17 @@ export function Contact() {
           </div>
 
           <h2 className="text-4xl md:text-5xl text-grey-900 font-medium mb-8 leading-tight tracking-tight max-w-3xl">
-            Let&apos;s build something great together
+            Let&apos;s talk about what you&apos;re building
           </h2>
 
           <p className="text-grey-700 text-lg max-w-2xl mb-16">
-            I&apos;m always open to discussing new projects, creative ideas, or
-            opportunities to be part of your vision.
+            A full product, a redesign, or a single page that needs to be
+            right. Send me the details and I&apos;ll come back to you.
           </p>
         </RevealOnScroll>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
-          <RevealOnScroll delay={0.2} className="lg:col-span-3">
+          <RevealOnScroll delay={0.1} className="lg:col-span-3">
             <form onSubmit={handleSubmit} className="space-y-8">
               {(["name", "email", "subject"] as const).map((field) => (
                 <div key={field} className="relative">
@@ -106,7 +107,7 @@ export function Contact() {
               <MagneticButton>
                 <button
                   type="submit"
-                  className="group inline-flex items-center gap-3 bg-grey-900 text-grey-0 px-8 py-4 rounded-full hover:bg-grey-700 transition-all duration-300"
+                  className="group inline-flex items-center gap-3 bg-grey-900 text-grey-0 px-8 py-4 rounded-full hover:bg-grey-700 transition-colors duration-300"
                 >
                   <span className="tracking-wide">Send Message</span>
                   <Send
@@ -118,7 +119,7 @@ export function Contact() {
             </form>
           </RevealOnScroll>
 
-          <RevealOnScroll delay={0.3} direction="left" className="lg:col-span-2">
+          <RevealOnScroll delay={0.15} direction="left" className="lg:col-span-2">
             <div className="space-y-8">
               <div>
                 <h3 className="text-grey-900 font-medium text-xl mb-4 tracking-tight">
@@ -133,7 +134,7 @@ export function Contact() {
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-11 h-11 border border-grey-200 rounded-full flex items-center justify-center hover:border-grey-900 hover:text-grey-900 transition-all duration-300"
+                        className="w-11 h-11 border border-grey-200 rounded-full flex items-center justify-center hover:border-grey-900 hover:text-grey-900 transition-colors duration-300"
                         aria-label={social.label}
                       >
                         <Icon size={18} />

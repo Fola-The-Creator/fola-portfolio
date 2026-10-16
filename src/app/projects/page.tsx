@@ -1,31 +1,37 @@
 "use client";
 
 import { useState } from "react";
-import { ExternalLink, Github, ArrowUpRight, Download } from "lucide-react";
+import { ArrowUpRight, Download } from "lucide-react";
 import Image from "next/image";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
 import { SectionDiv } from "@/components/layouts";
 import { MagneticButton } from "@/components/animations";
-import { CategoryFilter } from "@/components/ui";
+import { CategoryFilter, ConfidentialBadge, ProjectLinks } from "@/components/ui";
 import Link from "next/link";
 import { useProjects } from "@/hooks/useProjects";
+import { CV_URL } from "@/data/site";
 import type { ProjectCategory } from "@/types/project";
 
 type FilterCategory = "All" | ProjectCategory;
 
-const categories = [
-  "All",
-  "Web Apps",
+/** Display order for the filter pills — only categories in use are shown. */
+const CATEGORY_ORDER = [
   "Websites",
+  "E-Commerce",
   "Dashboards",
-  "Design",
-  "Mobile Apps",
-  "Open Source",
-] as const satisfies readonly FilterCategory[];
+  "Web Apps",
+] as const satisfies readonly ProjectCategory[];
 
 export default function ProjectsPage() {
   const projects = useProjects();
   const [activeCategory, setActiveCategory] = useState<FilterCategory>("All");
+
+  const categories: readonly FilterCategory[] = [
+    "All",
+    ...CATEGORY_ORDER.filter((category) =>
+      projects.some((project) => project.category === category),
+    ),
+  ];
 
   const filtered =
     activeCategory === "All"
@@ -33,6 +39,12 @@ export default function ProjectsPage() {
       : projects.filter((p) => p.category === activeCategory);
 
   const featuredProjects = projects.filter((p) => p.featured);
+
+  // The grid draws its dividers with a 1px gap over a grey background, so a
+  // part-filled last row would show as a grey slab. These blank cells close it.
+  const fillersMd = (2 - (filtered.length % 2)) % 2;
+  const fillersLg = (3 - (filtered.length % 3)) % 3;
+  const fillers = Array.from({ length: Math.max(fillersMd, fillersLg) });
 
   return (
     <main>
@@ -47,20 +59,21 @@ export default function ProjectsPage() {
               Selected Work
             </div>
             <h1 className="text-5xl md:text-7xl text-grey-900 font-medium leading-tight tracking-tight max-w-4xl mb-8">
-              Projects that
+              Real work for
               <br />
-              <span className="text-grey-500">showcase my craft</span>
+              <span className="text-grey-500">real businesses</span>
             </h1>
             <p className="text-grey-700 md:text-lg max-w-xl leading-relaxed">
-              A curated collection of work spanning product design, full-stack
-              engineering, and open source. Each project is a deliberate
-              exercise in quality.
+              Marketing sites, online stores, admin dashboards, and product
+              work. Most of it you can click through. A few are covered by an
+              NDA, so you will see the shape of the work but not the client.
             </p>
           </RevealOnScroll>
 
           <RevealOnScroll
             stagger={0.1}
-            duration={0.3}
+            duration={0.5}
+            distance={20}
             className="grid grid-cols-3 gap-px bg-grey-200 mt-20 max-w-xl rounded-2xl overflow-hidden"
           >
             {[
@@ -90,79 +103,73 @@ export default function ProjectsPage() {
             </div>
           </RevealOnScroll>
 
-          <div className="space-y-px bg-grey-200 rounded-2xl overflow-hidden">
-            {featuredProjects.map((project, index) => (
-              <RevealOnScroll key={project.id} delay={index * 0.1}>
-                <div className="group bg-grey-0 grid grid-cols-1 lg:grid-cols-2 transition-all duration-500">
-                  <div className="relative aspect-video lg:aspect-auto overflow-hidden">
-                    <Image
-                      src={project.imageUrl}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover group-hover:scale-105 transition-all duration-700"
-                    />
-                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
+          <RevealOnScroll
+            stagger={0.12}
+            duration={0.6}
+            distance={24}
+            className="space-y-px bg-grey-200 rounded-2xl overflow-hidden"
+          >
+            {featuredProjects.map((project) => (
+              <div
+                key={project.id}
+                className="group bg-grey-0 grid grid-cols-1 lg:grid-cols-2"
+              >
+                <div className="relative aspect-video lg:aspect-auto overflow-hidden bg-grey-900">
+                  {project.confidential && <ConfidentialBadge />}
+                  <Image
+                    src={project.imageUrl}
+                    alt={
+                      project.confidential
+                        ? `${project.title} — preview withheld under NDA`
+                        : project.title
+                    }
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className={`object-cover group-hover:scale-105 transition-transform duration-700 ${
+                      project.confidential ? "grayscale" : ""
+                    }`}
+                  />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
+                </div>
+
+                <div className="p-10 lg:p-14 flex flex-col justify-between min-h-[320px]">
+                  <div>
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="text-xs tracking-widest uppercase text-grey-700">
+                        {project.category}
+                      </span>
+                      <span className="text-xs tracking-widest text-grey-700">
+                        {project.year}
+                      </span>
+                    </div>
+
+                    <h3 className="text-3xl font-medium text-grey-900 tracking-tight mb-4">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-grey-700 leading-relaxed mb-2">
+                      {project.longDescription}
+                    </p>
                   </div>
 
-                  <div className="p-10 lg:p-14 flex flex-col justify-between min-h-[320px]">
-                    <div>
-                      <div className="flex items-center justify-between mb-6">
-                        <span className="text-xs tracking-widest uppercase text-grey-700">
-                          {project.category}
+                  <div>
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs text-grey-900 border border-grey-200 px-3 py-1 rounded-full tracking-wider"
+                        >
+                          {tag}
                         </span>
-                        <span className="text-xs tracking-widest text-grey-700">
-                          {project.year}
-                        </span>
-                      </div>
-
-                      <h3 className="text-3xl font-medium text-grey-900 tracking-tight mb-4">
-                        {project.title}
-                      </h3>
-
-                      <p className="text-grey-700 leading-relaxed mb-2">
-                        {project.longDescription}
-                      </p>
+                      ))}
                     </div>
 
-                    <div>
-                      <div className="flex flex-wrap gap-2 mb-8">
-                        {project.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="text-xs text-grey-900 border border-grey-200 px-3 py-1 rounded-full tracking-wider"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div className="flex gap-6">
-                        {project.liveUrl && (
-                          <a
-                            href={project.liveUrl}
-                            className="inline-flex items-center gap-2 text-grey-900 text-sm tracking-wide hover:text-grey-600 transition-all"
-                          >
-                            <span>Live Demo</span>
-                            <ExternalLink size={13} />
-                          </a>
-                        )}
-                        {project.githubUrl && (
-                          <a
-                            href={project.githubUrl}
-                            className="inline-flex items-center gap-2 text-grey-900 text-sm tracking-wide hover:text-grey-600 transition-all"
-                          >
-                            <span>GitHub</span>
-                            <Github size={13} />
-                          </a>
-                        )}
-                      </div>
-                    </div>
+                    <ProjectLinks project={project} />
                   </div>
                 </div>
-              </RevealOnScroll>
+              </div>
             ))}
-          </div>
+          </RevealOnScroll>
         </SectionDiv>
       </section>
 
@@ -189,24 +196,32 @@ export default function ProjectsPage() {
 
           <RevealOnScroll
             key={activeCategory}
-            stagger={0.07}
-            duration={0.25}
+            stagger={0.06}
+            duration={0.45}
+            distance={24}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-grey-200 rounded-2xl overflow-hidden"
           >
             {filtered.map((project) => (
-              <div key={project.id} className="group bg-grey-0">
-                <div className="relative aspect-video overflow-hidden bg-grey-900">
+              <div key={project.id} className="group bg-grey-0 flex flex-col">
+                <div className="relative aspect-video overflow-hidden bg-grey-900 shrink-0">
+                  {project.confidential && <ConfidentialBadge />}
                   <Image
                     src={project.imageUrl}
-                    alt={project.title}
+                    alt={
+                      project.confidential
+                        ? `${project.title} — preview withheld under NDA`
+                        : project.title
+                    }
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-all duration-700"
+                    className={`object-cover group-hover:scale-105 transition-transform duration-700 ${
+                      project.confidential ? "grayscale" : ""
+                    }`}
                   />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/15 transition-colors duration-400" />
                 </div>
 
-                <div className="p-8">
+                <div className="p-8 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-grey-700 text-xs tracking-widest uppercase">
                       {project.category}
@@ -235,28 +250,19 @@ export default function ProjectsPage() {
                     ))}
                   </div>
 
-                  <div className="flex gap-6">
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        className="inline-flex items-center gap-2 text-grey-900 text-sm tracking-wide hover:text-grey-600 transition-all"
-                      >
-                        <span>Live Demo</span>
-                        <ExternalLink size={13} />
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        className="inline-flex items-center gap-2 text-grey-900 text-sm tracking-wide hover:text-grey-600 transition-all"
-                      >
-                        <span>GitHub</span>
-                        <Github size={13} />
-                      </a>
-                    )}
-                  </div>
+                  <ProjectLinks project={project} className="flex gap-6 mt-auto" />
                 </div>
               </div>
+            ))}
+
+            {fillers.map((_, index) => (
+              <div
+                key={`filler-${index}`}
+                aria-hidden
+                className={`bg-grey-0 hidden ${
+                  index < fillersMd ? "md:block" : "md:hidden"
+                } ${index < fillersLg ? "lg:block" : "lg:hidden"}`}
+              />
             ))}
           </RevealOnScroll>
         </SectionDiv>
@@ -277,8 +283,8 @@ export default function ProjectsPage() {
                   in mind?
                 </h2>
                 <p className="text-grey-700 leading-relaxed max-w-md">
-                  I&apos;m always open to discussing new opportunities,
-                  interesting ideas, or just connecting with fellow builders.
+                  Tell me what you are building. If I am the right person for
+                  it, I will say so — and if I am not, I will tell you that too.
                 </p>
               </div>
 
@@ -286,7 +292,7 @@ export default function ProjectsPage() {
                 <MagneticButton>
                   <Link
                     href="/#contact"
-                    className="group inline-flex items-center justify-center gap-3 bg-grey-900 text-grey-0 px-8 py-4 rounded-full hover:bg-grey-700 transition-all duration-300 border border-transparent w-full"
+                    className="group inline-flex items-center justify-center gap-3 bg-grey-900 text-grey-0 px-8 py-4 rounded-full hover:bg-grey-700 transition-colors duration-300 border border-transparent w-full"
                   >
                     <span className="tracking-wide">Get In Touch</span>
                     <ArrowUpRight
@@ -297,10 +303,15 @@ export default function ProjectsPage() {
                 </MagneticButton>
 
                 <MagneticButton>
-                  <button className="group inline-flex items-center justify-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 rounded-full hover:border-grey-900 hover:bg-grey-900 hover:text-grey-0 transition-all duration-300 w-full">
+                  <a
+                    href={CV_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center justify-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 rounded-full hover:border-grey-900 hover:bg-grey-900 hover:text-grey-0 transition-colors duration-300 w-full"
+                  >
                     <Download size={18} />
-                    <span className="tracking-wide">Download Resume</span>
-                  </button>
+                    <span className="tracking-wide">Download CV</span>
+                  </a>
                 </MagneticButton>
               </div>
             </div>

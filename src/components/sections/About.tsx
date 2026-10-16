@@ -2,28 +2,24 @@ import { Download } from "lucide-react";
 import { RevealOnScroll } from "../animations/RevealOnScroll";
 import { MagneticButton } from "../animations/MagneticButton";
 import { SectionDiv } from "../layouts";
+import { CV_URL } from "@/data/site";
 
 const disciplines = [
   {
-    title: "Web - Mobile Design and Development",
+    title: "Web & Mobile Development",
     description:
-      "From pixel-perfect mockups to production-ready code. Design and engineering, in one place.",
+      "From the first mockup to production code. Design and engineering handled in one place, by one person.",
   },
   {
     title: "UI/UX Design",
     description:
-      "Research, wireframes, and high-fidelity prototypes that make products feel effortless to use.",
+      "Research, wireframes, and prototypes that make a product feel obvious to use.",
   },
   {
     title: "Brand and Visual Identity",
     description:
-      "Visual systems and brand languages built to communicate clearly and stick in memory.",
+      "Logos, type, colour, and the rules that hold them together — so the brand looks like itself everywhere.",
   },
-  // {
-  //   title: "Mobile App Design",
-  //   description:
-  //     "Polished mobile interfaces for iOS and Android that feel native, intentional, and fast.",
-  // },
 ];
 
 export function About() {
@@ -40,7 +36,7 @@ export function About() {
         </RevealOnScroll>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-          <RevealOnScroll delay={0.2}>
+          <RevealOnScroll delay={0.1}>
             <div>
               <h2 className="text-4xl md:text-5xl text-grey-900 font-medium mb-8 leading-tight tracking-tight">
                 Designer by eye,
@@ -50,26 +46,39 @@ export function About() {
 
               <div className="space-y-4 text-grey-700 leading-relaxed">
                 <p>
-                  I&apos;m <strong>Fola</strong>, a full-stack developer and designer. I work at the intersection of design and engineering, building digital products that look great and work even better.
+                  I&apos;m <strong>Fola</strong>, a full-stack developer and
+                  designer. I work where design and engineering meet, building
+                  products that look right and hold up once real people start
+                  using them.
                 </p>
                 <p>
-                  Whether I&apos;m crafting a brand identity from scratch or shipping production code, I bring the same energy to both. For me, design without development is incomplete, and development without design is just plumbing.
+                  A brand identity from scratch or a production codebase — the
+                  standard is the same either way. Design without development
+                  stays a picture. Development without design is just plumbing.
+                  I&apos;d rather do both properly.
                 </p>
                 <p>
-                  I care about the details: the right weight on a heading, the smooth interaction on a button, the architecture that won&apos;t break in six months. Every project gets the full picture.
+                  I care about the details most people never name: the weight of
+                  a heading, how a button answers a click, the architecture that
+                  still makes sense six months from now.
                 </p>
               </div>
 
               <MagneticButton className="mt-8">
-                <button className="group inline-flex items-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 rounded-full hover:border-grey-900 hover:bg-grey-900 hover:text-grey-0 transition-all duration-300">
+                <a
+                  href={CV_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-3 border border-grey-200 text-grey-900 px-8 py-4 rounded-full hover:border-grey-900 hover:bg-grey-900 hover:text-grey-0 transition-colors duration-300"
+                >
                   <Download size={18} />
-                  <span className="tracking-wide">Download Resume</span>
-                </button>
+                  <span className="tracking-wide">Download CV</span>
+                </a>
               </MagneticButton>
             </div>
           </RevealOnScroll>
 
-          <RevealOnScroll delay={0.3} direction="left">
+          <RevealOnScroll delay={0.15} direction="left">
             <div>
               <h3 className="text-2xl text-grey-900 font-medium mb-8 tracking-tight">
                 What I Do
